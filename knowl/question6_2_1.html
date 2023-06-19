@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.2.3</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question6_2_1" data-multipleanswers="false">
+<div class="para" id="p-1658">The following code contains an infinite loop. Which is the best explanation for why the loop does not terminate?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">n = 10
+answer = 1
+while ( n &gt; 0 ):
+  answer = answer + n
+  n = n + 1
+print(answer)
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question6_2_1_opt_a" data-correct=""><div class="para" id="p-1659">n starts at 10 and is incremented by 1 each time through the loop, so it will always be positive</div></li>
+<li data-component="feedback" id="foppff_1_question6_2_1_opt_a"><div class="para" id="p-1660">The loop will run as long as n is positive.  In this case, we can see that n will never become non-positive.</div></li>
+<li data-component="answer" id="foppff_1_question6_2_1_opt_b"><div class="para" id="p-1661">answer starts at 1 and is incremented by n each time, so it will always be positive</div></li>
+<li data-component="feedback" id="foppff_1_question6_2_1_opt_b"><div class="para" id="p-1662">While it is true that answer will always be positive, answer is not considered in the loop condition.</div></li>
+<li data-component="answer" id="foppff_1_question6_2_1_opt_c"><div class="para" id="p-1663">You cannot compare n to 0 in while loop.  You must compare it to another variable.</div></li>
+<li data-component="feedback" id="foppff_1_question6_2_1_opt_c"><div class="para" id="p-1664">It is perfectly valid to compare n to 0.  Though indirectly, this is what causes the infinite loop.</div></li>
+<li data-component="answer" id="foppff_1_question6_2_1_opt_d"><div class="para" id="p-1665">In the while loop body, we must set n to False, and this code does not do that.</div></li>
+<li data-component="feedback" id="foppff_1_question6_2_1_opt_d"><div class="para" id="p-1666">The loop condition must become False for the loop to terminate, but n by itself is not the condition in this case.</div></li>
+</ul></div></div></article><span class="incontext"><a href="more-about-iteration_the-while-statement.html#question6_2_1" class="internal">in-context</a></span>
+</body>
+</html>

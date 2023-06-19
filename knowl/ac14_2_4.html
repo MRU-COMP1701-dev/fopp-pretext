@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.2.5</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac14_2_4">
+<div class="ac_question col-md-12" id="foppff_1_ac14_2_4_question"><div class="para" id="p-1668">Write a function called <code class="code-inline tex2jax_ignore">stop_at_one</code> that takes an integer as a parameter, and performes the following operations on it until the integer equals 1: If the number is odd, multiply by 3 and add 1. If the number is even, divide by two. The function should then return how many iterations it took to reach 1.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac14_2_4_editor" data-question_label="" data-codelens="true">def stop_at_one(x: int) -&gt; int:
+
+
+
+=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+   def testOne(self):
+      self.assertEqual(stop_at_one(2), 1, "Testing the function stop_at_one on the input 2.")
+      self.assertEqual(stop_at_one(3), 7, "Testing the function stop_at_one on the input 3.")
+      self.assertEqual(stop_at_one(5), 5, "Testing the function stop_at_one on the input 5.")
+      self.assertEqual(stop_at_one(50), 24, "Testing the function stop_at_one on the input 50.")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="more-about-iteration_the-while-statement.html#ac14_2_4" class="internal">in-context</a></span>
+</body>
+</html>

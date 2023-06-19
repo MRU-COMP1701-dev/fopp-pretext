@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.9.1</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question5_9_1" data-multipleanswers="false">
+<div class="para" id="p-1574">Which of I, II, and III below gives the same result as the following nested if?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py"># nested if-else statement
+x = -10
+if x &lt; 0:
+  print("The negative number ", x, " is not valid here.")
+else:
+  if x &gt; 0:
+    print(x, " is a positive number")
+  else:
+    print(x, " is 0")
+</code></pre></div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">I.
+
+if x &lt; 0:
+  print("The negative number ", x, " is not valid here.")
+else (x &gt; 0):
+  print(x, " is a positive number")
+else:
+  print(x, " is 0")
+</code></pre></div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">II.
+
+if x &lt; 0:
+  print("The negative number ", x, " is not valid here.")
+elif (x &gt; 0):
+  print(x, " is a positive number")
+else:
+  print(x, " is 0")
+</code></pre></div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">III.
+
+if x &lt; 0:
+  print("The negative number ", x, " is not valid here.")
+if (x &gt; 0):
+  print(x, " is a positive number")
+else:
+  print(x, " is 0")
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question5_9_1_opt_a"><div class="para" id="p-1575">I only</div></li>
+<li data-component="feedback" id="foppff_1_question5_9_1_opt_a"><div class="para" id="p-1576">You can not use a Boolean expression after an else.</div></li>
+<li data-component="answer" id="foppff_1_question5_9_1_opt_b" data-correct=""><div class="para" id="p-1577">II only</div></li>
+<li data-component="feedback" id="foppff_1_question5_9_1_opt_b"><div class="para" id="p-1578">Yes, II will give the same result.</div></li>
+<li data-component="answer" id="foppff_1_question5_9_1_opt_c"><div class="para" id="p-1579">III only</div></li>
+<li data-component="feedback" id="foppff_1_question5_9_1_opt_c"><div class="para" id="p-1580">No, III will not give the same result. The first if statement will be true, but the second will be false, so the else part will execute.</div></li>
+<li data-component="answer" id="foppff_1_question5_9_1_opt_d"><div class="para" id="p-1581">II and III</div></li>
+<li data-component="feedback" id="foppff_1_question5_9_1_opt_d"><div class="para" id="p-1582">No, Although II is correct III will not give the same result. Try it.</div></li>
+<li data-component="answer" id="foppff_1_question5_9_1_opt_e"><div class="para" id="p-1583">I, II, and III</div></li>
+<li data-component="feedback" id="foppff_1_question5_9_1_opt_e"><div class="para" id="p-1584">No, in I you can not have a Boolean expression after an else.</div></li>
+</ul></div></div></article><span class="incontext"><a href="conditionals_chained-conditionals.html#question5_9_1" class="internal">in-context</a></span>
+</body>
+</html>

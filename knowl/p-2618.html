@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para">Once the file has been created, we just need to call the <code class="code-inline tex2jax_ignore">write</code> method passing the string that we wish to add to the file. In this case, the string is already being printed so we will just change the <code class="code-inline tex2jax_ignore">print</code> into a call to the <code class="code-inline tex2jax_ignore">write</code> method. However, there is an additional step to take, since the write method can only accept a string as input. We’ll need to convert the number to a string. Then, we just need to add one extra character to the string. The newline character needs to be concatenated to the end of the line. The entire line now becomes <code class="code-inline tex2jax_ignore">outfile.write(str(square)+ '\n')</code>. The print statement automatically outputs a newline character after whatever text it outputs, but the write method does not do that automatically. We also need to close the file when we are done.</div>
+<span class="incontext"><a href="files_writing-text-files.html#p-2618" class="internal">in-context</a></span>
+</body>
+</html>

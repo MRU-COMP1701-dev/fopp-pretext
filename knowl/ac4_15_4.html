@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.14.4</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_15_4">
+<div class="ac_question col-md-12" id="foppff_1_ac4_15_4_question"><div class="para" id="p-1382">Write a function, <code class="code-inline tex2jax_ignore">addup</code>, that takes five integers as inputs and returns the sum of those integers.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_15_4_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+  def testFourA(self):
+    self.assertEqual(addup(1, 2, 3, 4, 5), 15, "Tests that addup(1, 2, 3, 4, 5) returns 15")
+    self.assertEqual(addup(0, 0, 0, 0, 1), 1, "Tests that addup(0, 0, 0, 0, 1) returns 1")
+    self.assertEqual(addup(-1, 1, -2, 2, -3), -3, "Tests that addup(-1, 1, -2, 2, -3) returns -3")
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="functions_chapter-assessment.html#ac4_15_4" class="internal">in-context</a></span>
+</body>
+</html>

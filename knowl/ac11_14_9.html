@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.14.9</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac11_14_9">
+<div class="ac_question col-md-12" id="foppff_1_ac11_14_9_question">
+<div class="para" id="p-2661">Read in the contents of the file <code class="code-inline tex2jax_ignore">SP500.txt</code> which has monthly data for 2016 and 2017 about the S&amp;P 500 closing prices as well as some other financial indicators, including the “Long Term Interest Rate”, which is interest rate paid on 10-year U.S. government bonds.</div> <div class="para" id="p-2662">Write a program that computes the average closing price (the second column, labeled SP500) and the highest long-term interest rate. Both should be computed only for the period from June 2016 through May 2017. Save the results in the variables <code class="code-inline tex2jax_ignore">mean_SP</code> and <code class="code-inline tex2jax_ignore">max_interest</code>.</div>
+</div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac11_14_9_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+   def testOne(self):
+      self.assertLess(abs(mean_SP - 2237), 0.5, "Testing that mean_SP is within 0.5 of the correct value. Make sure to use only the correct 12 month period.")
+      self.assertEqual(max_interest, 2.49, "Testing the max_interest is correct. Make sure to use only the correct 12 month period.")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="files_chapter-assessment.html#ac11_14_9" class="internal">in-context</a></span>
+</body>
+</html>

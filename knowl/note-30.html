@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="note remark-like"><h3 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">4.9.6</span><span class="period">.</span>
+</h3>
+<div class="para"><em class="alert">Are there any times one should use global variables? No.</em></div> <div class="para">More correctly, you should not use global variables unless there is a very good reason.</div> <div class="para">The problem with with global variables is that they can easily lead to unintentional changes that propagate throughout the the entire programs. While it may make sense to change a global variable for one specific function, doing so may mess up the processing for all the other functions. Consider a function that is designed to round and display an assessment’s mark to the nearest whole percentage (78.7% becomes 79%). However, when calculating an overall course grade, we don’t use the individual assignments’ rounded marks, we use their raw, unrounded marks (you don’t ’round’ a ’rounded’ mark). So global changes to individual assessement grades would make the overall course grade incorrect. However, it <em class="emphasis">might</em> make sense to round the overall course grade (changed as a global variable) when that final overall grade is being sent to the Registrar.</div> <div class="para">An example of an appropriate use of a global variable is the use of a constant by a series of functions. In the example below, <code class="code-inline tex2jax_ignore">PI</code> is a global variable (a constant) that does not need to be defined locally for each of the functions. Do note, <code class="code-inline tex2jax_ignore">PI</code> is <em class="alert">not</em> changed within any of the functions.</div> <div class="para"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">from math import pi as PI
+def area_circle( any_radius: float ) -&gt; float:
+    """with any length greater than zero, returns area"""
+    return (PI * any_radius**2)
+
+def circumference_circle(any_radius:float) -&gt; float:
+    """with any length greater than zero, returns circumference"""
+    return (2 * PI * any_radius)
+
+def volume_sphere(any_radius:float) -&gt; float:
+    """With any length greater than zero, returns volume"""
+    return (4/3 * PI * any_radius**3)
+</code></pre></div></div></article><span class="incontext"><a href="functions_global-variables.html#note-30" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question5_3_2" data-multipleanswers="false">
+<div class="para" id="p-1462">Which of the following may result in a crash at runtime if the user presses Enter without typing a response?</div> <div class="para" id="p-1463">Option A)</div>
+<pre class="code-block tex2jax_ignore">yesno = input('Enter Yes or No:')
+if yesno[0] == 'Y' and len(yesno) &gt; 0:
+   print('Yes!')
+</pre>
+<div class="para" id="p-1464">Option B)</div>
+<pre class="code-block tex2jax_ignore">yesno = input('Enter Yes or No:')
+if len(yesno) &gt; 0 and yesno[0] == 'Y':
+   print('Yes!')
+</pre>
+<li data-component="answer" id="foppff_1_question5_3_2_opt_a" data-correct=""><div class="para" id="p-1465">Option A</div></li>
+<li data-component="feedback" id="foppff_1_question5_3_2_opt_a"><div class="para" id="p-1466">Correct! The comparison yesno[0] == ’Y’ will crash if yesno is an empty string.</div></li>
+<li data-component="answer" id="foppff_1_question5_3_2_opt_b"><div class="para" id="p-1467">Option B</div></li>
+<li data-component="feedback" id="foppff_1_question5_3_2_opt_b"><div class="para" id="p-1468">Incorrect. If len(yesno) &gt; 0 is False, the potentially unsafe comparison yesno[0] == ’Y’ will not be evaluated.</div></li>
+</ul></div></div></article><span class="incontext"><a href="conditionals_logical-operators.html#question5_3_2" class="internal">in-context</a></span>
+</body>
+</html>

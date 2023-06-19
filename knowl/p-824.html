@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para">The error message points you to line 1 and in this case that is exactly where the error occurs. In this case your biggest clue is to notice the difference in highlighting on the line. Notice that the words “current time” are a different color than those around them. Why is this? Because “current time” is in double quotes inside another pair of double quotes Python thinks that you are finishing off one string, then you have some other names and finally another string. But you haven’t separated these names or strings by commas, and you haven’t added them together with the concatenation operator (+). So, there are several corrections you could make. First you could make the argument to input be as follows: <code class="code-inline tex2jax_ignore">"What
+        is the 'current time' (in hours 0-23)
+            "</code> Notice that here we have correctly used single quotes inside double quotes . Another option is to simply remove the extra double quotes. Why were you quoting “current time” anyway? <code class="code-inline tex2jax_ignore">"What is the current time (in hours 0-23)"</code>
+</div>
+<span class="incontext"><a href="debugging_know-your-error-messages.html#p-824" class="internal">in-context</a></span>
+</body>
+</html>

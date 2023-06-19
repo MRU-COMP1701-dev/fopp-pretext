@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.17.3</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_assess_question1_1_1_3" data-multipleanswers="true">
+<div class="para" id="p-680">The code below initializes two variables, <code class="code-inline tex2jax_ignore">z</code> and <code class="code-inline tex2jax_ignore">y</code>. We want to assign the total number of characters in <code class="code-inline tex2jax_ignore">z</code> and in <code class="code-inline tex2jax_ignore">y</code> to the variable <code class="code-inline tex2jax_ignore">a</code>. Which of the following solutions, if any, would be considered hard coding?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">z = "hello world"
+y = "welcome!"
+</code></pre></div>
+<li data-component="answer" id="foppff_1_assess_question1_1_1_3_opt_a" data-correct=""><div class="para" id="p-681">a = len("hello worldwelcome!")</div></li>
+<li data-component="feedback" id="foppff_1_assess_question1_1_1_3_opt_a"><div class="para" id="p-682">Though we are using the len function here, we are hardcoding what len should return the length of. We are not referencing z or y.</div></li>
+<li data-component="answer" id="foppff_1_assess_question1_1_1_3_opt_b" data-correct=""><div class="para" id="p-683">a = 11 + 8</div></li>
+<li data-component="feedback" id="foppff_1_assess_question1_1_1_3_opt_b"><div class="para" id="p-684">This is hardcoding, we are writing in the value without referencing z or y.</div></li>
+<li data-component="answer" id="foppff_1_assess_question1_1_1_3_opt_c"><div class="para" id="p-685">a = len(z) + len(y)</div></li>
+<li data-component="feedback" id="foppff_1_assess_question1_1_1_3_opt_c"><div class="para" id="p-686">This is not considered hard coding. We are using the function len to determine the length of what is stored in z and y, which is a correct way to approach this problem.</div></li>
+<li data-component="answer" id="foppff_1_assess_question1_1_1_3_opt_d" data-correct=""><div class="para" id="p-687">a = len("hello world") + len("welcome!")</div></li>
+<li data-component="feedback" id="foppff_1_assess_question1_1_1_3_opt_d"><div class="para" id="p-688">Though we are using the len function here, we are hardcoding what len should return the length of each time we call len. We are not referencing z or y.</div></li>
+<li data-component="answer" id="foppff_1_assess_question1_1_1_3_opt_e"><div class="para" id="p-689">none of the above are hardcoding.</div></li>
+<li data-component="feedback" id="foppff_1_assess_question1_1_1_3_opt_e"><div class="para" id="p-690">At least one of these solutions is considered hardcoding. Take another look.</div></li>
+</ul></div></div></article><span class="incontext"><a href="simple-python-data_chapter-assessment.html#assess_question1_1_1_3" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">12.3.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac12_04_2">
+<div class="ac_question col-md-12" id="foppff_1_ac12_04_2_question"><div class="para" id="p-2675">Provided is a buggy for loop that tries to accumulate some values out of some dictionaries. Insert a try/except so that the code passes.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac12_04_2_editor" data-question_label="" data-codelens="true">di = [{"Puppies": 17, 'Kittens': 9, "Birds": 23, 'Fish': 90, "Hamsters": 49}, {"Puppies": 23, "Birds": 29, "Fish": 20, "Mice": 20, "Snakes": 7}, {"Fish": 203, "Hamsters": 93, "Snakes": 25, "Kittens": 89}, {"Birds": 20, "Puppies": 90, "Snakes": 21, "Fish": 10, "Kittens": 67}]
+total = 0
+for diction in di:
+    total = total + diction['Puppies']
+
+print("Total number of puppies:", total)
+
+
+=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+   def testOne(self):
+      self.assertEqual(total, 130, "Testing that total has the correct value.")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="exceptions_chapter-assessment.html#ac12_04_2" class="internal">in-context</a></span>
+</body>
+</html>

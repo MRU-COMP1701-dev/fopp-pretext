@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">8.10.10</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_assess_ac2_1_1_10">
+<div class="ac_question col-md-12" id="foppff_1_assess_ac2_1_1_10_question"><div class="para" id="p-2079">Write code that uses slicing to get rid of the the second 8 so that here are only two 8’s in the list bound to the variable nums.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_assess_ac2_1_1_10_editor" data-question_label="" data-codelens="true">nums = [4, 2, 8, 23.4, 8, 9, 545, 9, 1, 234.001, 5, 49, 8, 9 , 34, 52, 1, -2, 9.1, 4]
+
+
+=====
+
+from unittest.gui import TestCaseGui
+import re
+
+class myTests(TestCaseGui):
+
+  def test_output(self):
+    self.assertEqual(nums, [4, 2, 8, 23.4, 9, 545, 9, 1, 234.001, 5, 49, 8, 9 , 34, 52, 1, -2, 9.1, 4], "Testing that nums is set correctly.")
+    self.assertTrue(re.search(r'\s*:', self.getEditorText()), "Testing that you are using slices to remove the second 8 (Don't worry about actual and expected values)")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="sequences_chapter-assessment.html#assess_ac2_1_1_10" class="internal">in-context</a></span>
+</body>
+</html>

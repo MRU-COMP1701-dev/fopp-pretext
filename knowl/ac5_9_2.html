@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.9.3</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac5_9_2">
+<div class="ac_question col-md-12" id="foppff_1_ac5_9_2_question"><div class="para" id="p-1592">Create one conditional to find whether “false” is in string <code class="code-inline tex2jax_ignore">str1</code>. If so, assign variable <code class="code-inline tex2jax_ignore">output</code> the string “False. You aren’t you?”. Check to see if “true” is in string <code class="code-inline tex2jax_ignore">str1</code> and if it is then assign “True! You are you!” to the variable <code class="code-inline tex2jax_ignore">
+        output</code>. If neither are in <code class="code-inline tex2jax_ignore">str1</code>, assign “Neither true nor false!” to <code class="code-inline tex2jax_ignore">
+        output</code>.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac5_9_2_editor" data-question_label="" data-codelens="true">str1 = "Today you are you! That is truer than true! There is no one alive who is you-er than
+you!"
+
+=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+  def testThree(self):
+    self.assertEqual(output, "True! You are you!", "Testing that output has the correct value, given the str1 provided.")
+    self.assertIn("else", self.getEditorText(), "Testing output (Don't worry about actual and expected values).")
+    self.assertIn("elif", self.getEditorText(), "Testing output (Don't worry about actual and expected values).")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="conditionals_chained-conditionals.html#ac5_9_2" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.5.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question11_5_1" data-multipleanswers="false">
+<div class="para" id="p-2578">Say you are in a directory called Project. In it, you have a file with your Python code. You would like to read in data from a file called “YearlyProjections.csv” which is in a folder called CompanyData, which is inside of Project. What is the best way to open the file in your Python program?</div>
+<li data-component="answer" id="foppff_1_question11_5_1_opt_a"><div class="para" id="p-2579">open("YearlyProjections.csv", "r")</div></li>
+<li data-component="feedback" id="foppff_1_question11_5_1_opt_a"><div class="para" id="p-2580">This would try to open a file inside of Project (but that is not where the file is.)</div></li>
+<li data-component="answer" id="foppff_1_question11_5_1_opt_b"><div class="para" id="p-2581">open("../CompanyData/YearlyProjections.csv", "r")</div></li>
+<li data-component="feedback" id="foppff_1_question11_5_1_opt_b"><div class="para" id="p-2582">This would go to the parent directory of Project and look for a subdirectory of that called CompanyData. But CompanyData is inside Project so it wouldn’t be found.</div></li>
+<li data-component="answer" id="foppff_1_question11_5_1_opt_c" data-correct=""><div class="para" id="p-2583">open("CompanyData/YearlyProjections.csv", "r")</div></li>
+<li data-component="feedback" id="foppff_1_question11_5_1_opt_c"><div class="para" id="p-2584">Yes, this is how you can access the file!</div></li>
+<li data-component="answer" id="foppff_1_question11_5_1_opt_d"><div class="para" id="p-2585">open("Project/CompanyData/YearlyProjections.csv", "r")</div></li>
+<li data-component="feedback" id="foppff_1_question11_5_1_opt_d"><div class="para" id="p-2586">This would try to find a subdirectory Project of the current directory called Project.</div></li>
+<li data-component="answer" id="foppff_1_question11_5_1_opt_e"><div class="para" id="p-2587">open("../YearlyProjections.csv", "r")</div></li>
+<li data-component="feedback" id="foppff_1_question11_5_1_opt_e"><div class="para" id="p-2588">Remember that ’..’ will bring you up one level to the parent directory. This would try to open a csv file in the parent directory of Project (but that is not where the file is.)</div></li>
+</ul></div></div></article><span class="incontext"><a href="files_finding-a-file-in-your-filesystem.html#question11_5_1" class="internal">in-context</a></span>
+</body>
+</html>

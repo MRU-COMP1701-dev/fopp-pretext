@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">8.10.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac8_10_1">
+<div class="ac_question col-md-12" id="foppff_1_ac8_10_1_question"><div class="para" id="p-2031">Write a program that extracts the last three items in the list <code class="code-inline tex2jax_ignore">sports</code> and assigns it to the variable <code class="code-inline tex2jax_ignore">last</code>. Make sure to write your code so that it works no matter how many items are in the list.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac8_10_1_editor" data-question_label="" data-codelens="true">sports = ['cricket', 'football', 'volleyball', 'baseball', 'softball', 'track and field', 'curling', 'ping pong', 'hockey']
+
+
+=====
+
+from unittest.gui import TestCaseGui
+import re
+
+class myTests(TestCaseGui):
+
+  def test_output(self):
+     self.assertEqual(last, ['curling', 'ping pong', 'hockey'], "Testing that the value of last is the last three items in sports.")
+     self.assertTrue(re.search(r'last\s*=\s*\S*3:', self.getEditorText()), "Hardcode check")
+
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="sequences_chapter-assessment.html#ac8_10_1" class="internal">in-context</a></span>
+</body>
+</html>

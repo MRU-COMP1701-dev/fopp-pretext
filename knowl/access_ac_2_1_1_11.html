@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">8.10.11</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_access_ac_2_1_1_11">
+<div class="ac_question col-md-12" id="foppff_1_access_ac_2_1_1_11_question"><div class="para" id="p-2080">Assign the last element of <code class="code-inline tex2jax_ignore">lst</code> to the variable <code class="code-inline tex2jax_ignore">end_elem</code>. Do this so that it works no matter how long lst is.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_access_ac_2_1_1_11_editor" data-question_label="" data-codelens="true">lst = ["hi", "goodbye", "python", "106", "506", 91, ['all', 'Paul', 'Jackie', "UMSI", 1, "Stephen", 4.5], 109, "chair", "pizza", "wolverine", 2017, 3.92, 1817, "account", "readings", "papers", 12, "facebook", "twitter", 193.2, "snapchat", "leaders and the best", "social", "1986", 9, 29, "holiday", ["women", "olympics", "gold", "rio", 21, "2016", "men"], "26trombones"]
+
+=====
+
+from unittest.gui import TestCaseGui
+import re
+
+class myTests(TestCaseGui):
+
+   def testOne(self):
+      self.assertEqual(end_elem, lst[-1], "Testing that end_elem has the correct element assigned.")
+      self.assertFalse(re.search(r'end_elem\s*=\s*\S26trombones\S', self.getEditorText()), "Hardcoding Check (Don't worry about actual and expected values)")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="sequences_chapter-assessment.html#access_ac_2_1_1_11" class="internal">in-context</a></span>
+</body>
+</html>

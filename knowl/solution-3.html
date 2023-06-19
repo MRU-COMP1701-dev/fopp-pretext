@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h2 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.5.1</span><span class="period">.</span>
+</h2>
+<div class="para">The problem is that whenever we add more money to the account, we also increase the value of "enough". As long as "enough_money" increases by an amount less than the additional amount, the loop will eventually terminate.</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">account_balance = 0
+enough_money = 1000
+while account_balance &lt; enough_money:
+    print("account_balance: ", account_balance)
+    print("enough_money: ", enough_money)
+    account_balance += 100
+    enough_money += 10
+
+print("Final account_balance: ", account_balance)
+</code></pre></div>
+</div>
+<span class="incontext"><a href="iteration_infinite-loops.html#solution-3" class="internal">in-context</a></span>
+</body>
+</html>

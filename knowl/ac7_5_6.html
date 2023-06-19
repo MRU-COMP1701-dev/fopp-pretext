@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.5.5</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac7_5_6">
+<div class="ac_question col-md-12" id="foppff_1_ac7_5_6_question"><div class="para" id="p-1777">Create a string of numbers 0 through 40 and assign this string to the variable <code class="code-inline tex2jax_ignore">numbers</code>. Then, accumulate the total of the string’s values and assign that sum to the variable <code class="code-inline tex2jax_ignore">sum1</code>. Note that, although the value <code class="code-inline tex2jax_ignore">10</code> will be added to the string, it will be summed as <code class="code-inline tex2jax_ignore">1 + 0</code>, as the loop merely looks at one digit at a time.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac7_5_6_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+   def testNineA(self):
+      self.assertEqual(numbers, "012345678910111213141516171819202122232425262728293031323334353637383940", "Testing that numbers is assigned to correct values.")
+
+   def testNineB(self):
+      self.assertEqual(sum1, 244, "Testing that sum1 has the correct value.")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="more-about-iteration_the-accumulator-pattern.html#ac7_5_6" class="internal">in-context</a></span>
+</body>
+</html>

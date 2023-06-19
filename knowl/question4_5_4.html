@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.6</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_5_4" data-multipleanswers="false">
+<div class="para" id="p-1063">What will the following code output?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def square(x: int) -&gt; int:
+    y = x * x
+    return y
+
+print(square(square(2)))
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_5_4_opt_a"><div class="para" id="p-1064">8</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_4_opt_a"><div class="para" id="p-1065">It squares 2, yielding the value 4. But that doesn’t mean the next value multiplies 2 and 4.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_4_opt_b" data-correct=""><div class="para" id="p-1066">16</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_4_opt_b"><div class="para" id="p-1067">It squares 2, yielding the value 4. 4 is then passed as a value to square again, yeilding 16.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_4_opt_c"><div class="para" id="p-1068">Error: can’t put a function invocation inside parentheses</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_4_opt_c"><div class="para" id="p-1069">This is a more complicated expression, but still valid. The expression square(2) is evaluated, and the return value 4 substitutes for square(2) in the expression.</div></li>
+</ul></div></div></article><span class="incontext"><a href="functions_returning-a-value-from-a-function.html#question4_5_4" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">12.3.1</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac12_04_1">
+<div class="ac_question col-md-12" id="foppff_1_ac12_04_1_question"><div class="para" id="p-2674">The code below takes the list of country, <code class="code-inline tex2jax_ignore">country</code>, and searches to see if it is in the dictionary <code class="code-inline tex2jax_ignore">gold</code> which shows some countries who won gold during the Olympics. However, this code currently does not work. Correctly add try/except clause in the code so that it will correctly populate the list, <code class="code-inline tex2jax_ignore">country_gold</code>, with either the number of golds won or the string “Did not get gold”.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac12_04_1_editor" data-question_label="" data-codelens="true">gold = {"US":46, "Fiji":1, "Great Britain":27, "Cuba":5, "Thailand":2, "China":26, "France":10}
+country = ["Fiji", "Chile", "Mexico", "France", "Norway", "US"]
+country_gold = []
+
+for x in country:
+    country_gold.append(gold[x])
+    country_gold.append("Did not get gold")
+
+=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+   def testOneA(self):
+      self.assertEqual(country_gold, [1, 'Did not get gold', 'Did not get gold', 10, 'Did not get gold', 46], "Testing that country_gold is assigned to correct values")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="exceptions_chapter-assessment.html#ac12_04_1" class="internal">in-context</a></span>
+</body>
+</html>

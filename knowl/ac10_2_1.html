@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.2.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac10_2_1">
+<div class="ac_question col-md-12" id="foppff_1_ac10_2_1_question"><div class="para" id="p-2487">
+<dfn class="terminology">1.</dfn> Extract the value associated with the key color and assign it to the variable <code class="code-inline tex2jax_ignore">color</code>. Do not hard code this.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac10_2_1_editor" data-question_label="" data-codelens="true">info = {'personal_data':
+         {'name': 'Lauren',
+          'age': 20,
+          'major': 'Information Science',
+          'physical_features':
+             {'color': {'eye': 'blue',
+                        'hair': 'brown'},
+              'height': "5'8"}
+         },
+       'other':
+         {'favorite_colors': ['purple', 'green', 'blue'],
+          'interested_in': ['social media', 'intellectual property', 'copyright', 'music', 'books']
+         }
+      }
+
+=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+   def testOne(self):
+      self.assertEqual(color, {'eye': 'blue', 'hair': 'brown'}, "Testing that color has the correct value.")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="nested-data_nested-dictionaries.html#ac10_2_1" class="internal">in-context</a></span>
+</body>
+</html>

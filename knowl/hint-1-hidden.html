@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="hint solution-like"><article class="note remark-like"><h4 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">3.6.5</span><span class="period">.</span><span class="space"> </span><span class="title">Solution.</span>
+</h4> <div class="para">In finding this error there are few lessons to think about. First, you may find it very disconcerting that you cannot understand the whole program. Unless you speak Polish then this won’t be an issue. But, learning what you can ignore, and what you need to focus on is a very important part of the debugging process. Second, types and good variable names are important and can be very helpful. In this case a and x are not particularly helpful names, and in particular they do not help you think about the types of your variables, which as the error message implies is the root of the problem here. The rest of the lessons we will get back to in a minute.</div> <div class="para">The error message provided to you gives you a pretty big hint. <code class="code-inline tex2jax_ignore">TypeError: unsupported
+          operand type(s) for FloorDiv: 'str' and 'number' on line: 5</code> On line five we are trying to use integer division on x and 24. The error message tells you that you are tyring to divide a string by a number. In this case you know that 24 is a number so x must be a string. But how? You can see the function call on line 3 where you are converting x to an integer. <code class="code-inline tex2jax_ignore">int(x)</code> or so you think. This is lesson three and is one of the most common errors we see in introductory programming. What is the difference between <code class="code-inline tex2jax_ignore">int(x)</code> and <code class="code-inline tex2jax_ignore">x = int(x)</code>
+</div> <div class="para logical"><ul class="disc">
+<li><div class="para">The expression <code class="code-inline tex2jax_ignore">int(x)</code> converts the string referenced by x to an integer but it does not store it anywhere. It is very common to assume that <code class="code-inline tex2jax_ignore">int(x)</code> somehow changes x itself, as that is what you are intending! The thing that makes this very tricky is that <code class="code-inline tex2jax_ignore">int(x)</code> is a valid expression, so it doesn’t cause any kind of error, but rather the error happens later on in the program.</div></li>
+<li><div class="para">The assignment statement <code class="code-inline tex2jax_ignore">x = int(x)</code> is very different. Again, the <code class="code-inline tex2jax_ignore">int(x)</code> expression converts the string referenced by x to an integer, but this time it also changes what x references so that x now refers to the integer value returned by the <code class="code-inline tex2jax_ignore">
+                int</code> function.</div></li>
+</ul></div> <div class="para">So, the solution to this problem is to change lines 3 and 4 so they are assignment statements.</div></article></div></body>
+</html>

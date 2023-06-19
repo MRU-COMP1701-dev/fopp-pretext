@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.5.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question7_5_5" data-multipleanswers="false">
+<div class="para" id="p-1767">Consider the following code:</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">nums = "123456789"
+for w in nums:
+   accum = 0
+   accum = accum + w
+print(accum)
+</code></pre></div> <div class="para" id="p-1768">What happens if you put the initialization of accum inside the for loop as the first instruction in the loop?</div>
+<li data-component="answer" id="foppff_1_question7_5_5_opt_a" data-correct=""><div class="para" id="p-1769">It will print out 9 instead of 45</div></li>
+<li data-component="feedback" id="foppff_1_question7_5_5_opt_a"><div class="para" id="p-1770">The variable accum will be reset to 0 each time through the loop. Then it will add the current item. Only the last item will count.</div></li>
+<li data-component="answer" id="foppff_1_question7_5_5_opt_b"><div class="para" id="p-1771">It will cause a run-time error</div></li>
+<li data-component="feedback" id="foppff_1_question7_5_5_opt_b"><div class="para" id="p-1772">Assignment statements are perfectly legal inside loops and will not cause an error.</div></li>
+<li data-component="answer" id="foppff_1_question7_5_5_opt_c"><div class="para" id="p-1773">It will print out 0 instead of 45</div></li>
+<li data-component="feedback" id="foppff_1_question7_5_5_opt_c"><div class="para" id="p-1774">Good thought: the variable accum will be reset to 0 each time through the loop. But then it adds the current item.</div></li>
+</ul></div></div></article><span class="incontext"><a href="more-about-iteration_the-accumulator-pattern.html#question7_5_5" class="internal">in-context</a></span>
+</body>
+</html>

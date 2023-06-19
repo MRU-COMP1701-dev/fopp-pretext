@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.10.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question9_10_2" data-multipleanswers="false">
+<div class="para" id="p-2277">What is printed by the following statements?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">lst= [3,0,9,4,1,7]
+new_list=[]
+for i in range(len(lst)):
+   new_list.append(lst[i]+5)
+print(new_list)
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question9_10_2_opt_a"><div class="para" id="p-2278">[8,5,14,9,6]</div></li>
+<li data-component="feedback" id="foppff_1_question9_10_2_opt_a"><div class="para" id="p-2279">Don’t forget the last item!</div></li>
+<li data-component="answer" id="foppff_1_question9_10_2_opt_b" data-correct=""><div class="para" id="p-2280">[8,5,14,9,6,12]</div></li>
+<li data-component="feedback" id="foppff_1_question9_10_2_opt_b"><div class="para" id="p-2281">Yes, the for loop processes each item in lst. 5 is added before lst[i] is appended to new_list.</div></li>
+<li data-component="answer" id="foppff_1_question9_10_2_opt_c"><div class="para" id="p-2282">[3,0,9,4,1,7,5]</div></li>
+<li data-component="feedback" id="foppff_1_question9_10_2_opt_c"><div class="para" id="p-2283">5 is added to each item before the append operation is performed.</div></li>
+<li data-component="answer" id="foppff_1_question9_10_2_opt_d"><div class="para" id="p-2284">Error, you cannot concatenate inside an append.</div></li>
+<li data-component="feedback" id="foppff_1_question9_10_2_opt_d"><div class="para" id="p-2285">It is OK to have a complex expression inside the call to the append method. The expression `lst[i]+5` is fully evaluated before the append operation is performed.</div></li>
+</ul></div></div></article><span class="incontext"><a href="transforming-sequences_the-accumulator-pattern-with-lists.html#question9_10_2" class="internal">in-context</a></span>
+</body>
+</html>

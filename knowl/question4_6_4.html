@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.6.4</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_6_4" data-multipleanswers="true">
+<div class="para" id="p-1140">What should this function’s header look like?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">"""
+Calculates the combined areas of two squares.
+
+Parameters:
+  width_a : _____
+  The width of the first square.
+  width_b : _____
+  The width of the second square.
+
+Returns:
+  _____ : The combined areas of the squares.
+"""
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_6_4_opt_a" data-correct=""><div class="para" id="p-1141">def squares_area(width_a: int, width_b: int) -&gt; int:</div></li>
+<li data-component="feedback" id="foppff_1_question4_6_4_opt_a"><div class="para" id="p-1142">Since both pieces of data are integers, and the formula for calculating the area of a square wouldn’t result in a float given an integer, this would be correct.</div></li>
+<li data-component="answer" id="foppff_1_question4_6_4_opt_b"><div class="para" id="p-1143">def squares_area(width_a: float, width_b: float) -&gt; int:</div></li>
+<li data-component="feedback" id="foppff_1_question4_6_4_opt_b"><div class="para" id="p-1144">Based on the formula for finding the area of a square, and that no rounding is present, by giving this function two floats, an integer would not be returned.</div></li>
+<li data-component="answer" id="foppff_1_question4_6_4_opt_c"><div class="para" id="p-1145">def squares_area(width_a: int, width_b: int) -&gt; float:</div></li>
+<li data-component="feedback" id="foppff_1_question4_6_4_opt_c"><div class="para" id="p-1146">Based on the formula for finding the area of a square, and that the widths are only being multiplied, by giving this function two integers, a float could not be returned.</div></li>
+<li data-component="answer" id="foppff_1_question4_6_4_opt_d" data-correct=""><div class="para" id="p-1147">def squares_area(width_a: float, width_b: float) -&gt; float:</div></li>
+<li data-component="feedback" id="foppff_1_question4_6_4_opt_d"><div class="para" id="p-1148">Since both pieces of data are floats, and the formula for calculating the area of a square would result in a float given a float, this would be correct.</div></li>
+<li data-component="answer" id="foppff_1_question4_6_4_opt_e"><div class="para" id="p-1149">def squares_area(width_a, width_b):</div></li>
+<li data-component="feedback" id="foppff_1_question4_6_4_opt_e"><div class="para" id="p-1150">Although technically correct, type hinting would make this function easier to interpret.</div></li>
+</ul></div></div></article><span class="incontext"><a href="functions_decoding-a-function.html#question4_6_4" class="internal">in-context</a></span>
+</body>
+</html>

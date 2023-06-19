@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.10.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone parsons_section" style="max-width: none;"><div data-component="parsons" class="parsons" id="foppff_1_pp2_10_1">
+<div class="parsons_question parsons-text"><div class="para" id="p-540">Please order the code fragments in the order in which the Python interpreter would evaluate them. x is 2 and y is 3. Now the interpreter is executing square(x + sub(square(y), 2 *x)).</div></div>
+<pre class="parsonsblocks" data-question_label="" style="visibility: hidden;" data-language="python" data-noindent="true">look up the variable square to get the function object
+---
+look up the variable x to get 2
+---
+look up the variable sub to get the function object
+---
+look up the variable square, again, to get the function object
+---
+look up the variable y to get 3
+---
+run the square function on input 3, returning the value 9
+---
+look up the variable x, again, to get 2
+---
+multiply 2 * 2 to get 4
+---
+run the sub function, passing inputs 9 and 4, returning the value 5
+---
+add 2 and 5 to get 7
+---
+run the square function, again, on input 7, returning the value 49</pre>
+</div></div></div></article><span class="incontext"><a href="simple-python-data_statements-and-expressions.html#pp2_10_1" class="internal">in-context</a></span>
+</body>
+</html>

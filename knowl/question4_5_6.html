@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.7</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_5_6" data-multipleanswers="false">
+<div class="para" id="p-1070">Which will print out first, square, g, or a number?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def square(x: int) -&gt; int:
+    print("square")
+    return x*x
+
+def g(y: int) -&gt; int:
+    print("g")
+    return y + 3
+
+print(square(g(2)))
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_5_6_opt_a"><div class="para" id="p-1071">square</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_6_opt_a"><div class="para" id="p-1072">Before executing square, it has to figure out what value to pass in, so g is executed first</div></li>
+<li data-component="answer" id="foppff_1_question4_5_6_opt_b" data-correct=""><div class="para" id="p-1073">g</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_6_opt_b"><div class="para" id="p-1074">g has to be executed and return a value in order to know what paramater value to provide to x.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_6_opt_c"><div class="para" id="p-1075">a number</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_6_opt_c"><div class="para" id="p-1076">square and g both have to execute before the number is printed.</div></li>
+</ul></div></div></article><span class="incontext"><a href="functions_returning-a-value-from-a-function.html#question4_5_6" class="internal">in-context</a></span>
+</body>
+</html>

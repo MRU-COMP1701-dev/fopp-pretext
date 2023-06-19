@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">13.13.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac13_13_2">
+<div class="ac_question col-md-12" id="foppff_1_ac13_13_2_question"><div class="para" id="p-2801">Create a class called <code class="code-inline tex2jax_ignore">AppleBasket</code> whose constructor accepts two inputs: a string representing a color, and a number representing a quantity of apples. The constructor should initialize two instance variables: <code class="code-inline tex2jax_ignore">apple_color</code> and <code class="code-inline tex2jax_ignore">apple_quantity</code>.  Write a class method called <code class="code-inline tex2jax_ignore">increase</code> that increases the quantity by <code class="code-inline tex2jax_ignore">1</code> each time it is invoked. You should also write a <code class="code-inline tex2jax_ignore">__str__</code> method for this class that returns a string of the format: <code class="code-inline tex2jax_ignore">"A basket of [quantity goes here] [color goes here] apples."</code> e.g. <code class="code-inline tex2jax_ignore">"A basket of 4 red apples."</code> or <code class="code-inline tex2jax_ignore">"A basket of 50 blue apples."</code> (Writing some test code that creates instances and assigns values to variables may help you solve this problem!)</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac13_13_2_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+   def testOne(self):
+      tester = AppleBasket("red",4)
+      self.assertEqual(tester.apple_quantity, 4, "Testing the initialization of the apple_quantity inst var.")
+   def testTwo(self):
+      tester = AppleBasket("red",4)
+      tester.increase()
+      self.assertEqual(tester.apple_quantity, 5, "Testing the increase method")
+   def testThree(self):
+      tester = AppleBasket("green",17)
+      self.assertEqual(tester.__str__(),"A basket of 17 green apples.")
+
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="classes_chapter-assessment.html#ac13_13_2" class="internal">in-context</a></span>
+</body>
+</html>

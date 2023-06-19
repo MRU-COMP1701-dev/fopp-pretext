@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.8.5</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_8_3" data-multipleanswers="false">
+<div class="para" id="p-1201">What would be the result of running the following code?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def adding(x):
+    y = 3
+    z = y + x + x
+    return z
+
+def producing(x):
+    z = x * y
+    return z
+
+print(producing(adding(4)))
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_8_3_opt_a"><div class="para" id="p-1202">33</div></li>
+<li data-component="feedback" id="foppff_1_question4_8_3_opt_a"><div class="para" id="p-1203">Incorrect, look again at what is happening in producing.</div></li>
+<li data-component="answer" id="foppff_1_question4_8_3_opt_b"><div class="para" id="p-1204">12</div></li>
+<li data-component="feedback" id="foppff_1_question4_8_3_opt_b"><div class="para" id="p-1205">Incorrect, look again at what is happening in producing.</div></li>
+<li data-component="answer" id="foppff_1_question4_8_3_opt_c" data-correct=""><div class="para" id="p-1206">There is an error in the code.</div></li>
+<li data-component="feedback" id="foppff_1_question4_8_3_opt_c"><div class="para" id="p-1207">Yes! There is an error because we reference y in the producing function, but it was defined in adding. Because y is a local variable, we can’t use it in both functions without initializing it in both. If we initialized y as 3 in both though, the answer would be 33.</div></li>
+</ul></div></div></article><span class="incontext"><a href="functions_variables-and-parameters-are-local.html#question4_8_3" class="internal">in-context</a></span>
+</body>
+</html>

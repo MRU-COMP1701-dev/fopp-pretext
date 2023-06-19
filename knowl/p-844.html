@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para">In this example the error message is about <code class="code-inline tex2jax_ignore">set_time</code> not defined on line 3. In this case the undefined name is not used in an assignment statement, but is used as a parameter (incorrectly) to a function call. A search on <code class="code-inline tex2jax_ignore">set_time</code> reveals that in fact it is only used once in the program. Did the author mean <code class="code-inline tex2jax_ignore">set_alarm</code>? If we make that assumption we immediately get another error <code class="code-inline tex2jax_ignore">NameError: name 'alarm_time' is not defined
+          on line: 3</code>. The variable <code class="code-inline tex2jax_ignore">alarm_time</code> is defined on line 4, but that does not help us on line 3. Furthermore we now have to ask the question is this function call <code class="code-inline tex2jax_ignore">int(present_time,
+          set_alarm, alarm_time)</code> even the correct use of the <code class="code-inline tex2jax_ignore">int</code> function? The answer to that is a resounding no. Let’s list all of the things wrong with line 3:</div>
+<span class="incontext"><a href="debugging_know-your-error-messages.html#p-844" class="internal">in-context</a></span>
+</body>
+</html>

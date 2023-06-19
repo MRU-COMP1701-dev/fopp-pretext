@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.14.6</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_15_6">
+<div class="ac_question col-md-12" id="foppff_1_ac4_15_6_question">
+<div class="para" id="p-1384">You will need to write three functions for this problem.</div> <ul class="disc">
+<li id="li-213"><div class="para" id="p-1385">The first function, <code class="code-inline tex2jax_ignore">average</code> that takes in any three numbers and returns the average.</div></li>
+<li id="li-214"><div class="para" id="p-1386">The second function called <code class="code-inline tex2jax_ignore">diffSquare</code> that takes one number and the average of the three numbers, subtracts those numbers, and then returns the square of this difference.</div></li>
+<li id="li-215">
+<div class="para" id="p-1387">A third function called <code class="code-inline tex2jax_ignore">stdev</code> which is passed the three numbers and then:</div>
+<ol class="decimal">
+<li id="li-216"><div class="para" id="p-1388">Calls on <code class="code-inline tex2jax_ignore">average</code> to find the averaage of those three values, and assign the resulting average to a local variable.</div></li>
+<li id="li-217"><div class="para" id="p-1389">Calls on <code class="code-inline tex2jax_ignore">diffSquare</code> three times, passing each of the three numbers in turn and the local variable average, assigning the resulting squared differences to three local variables.</div></li>
+<li id="li-218"><div class="para" id="p-1390">Calls on <code class="code-inline tex2jax_ignore">average</code> again, this time passing in the three squared differences, and assigning this new average to a variable called <code class="code-inline tex2jax_ignore">variance</code>.</div></li>
+</ol>
+</li>
+<li id="li-219"><div class="para" id="p-1391">Finally, <code class="code-inline tex2jax_ignore">stdev</code> finds the square root of <code class="code-inline tex2jax_ignore">variance</code> as the standard deviation</div></li>
+</ul> <div class="para" id="p-1392">Do not worry about rounding the decimals.</div>
+</div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_15_6_editor" data-question_label="" data-codelens="true">"""
+Using these values: 10, 13, 15,
+you should get:
+- an average of 12.66666667.
+- these squared differences are: 7.1111111 0.11111111, 5.4444444
+- which sum to 12.66666667 and average to be 4.2222222
+- the square root of which is: 2.054804667
+""""
+
+def average( ,  ,  ): 
+
+
+
+
+    return mean
+
+
+def diffSquare(   ,   ): 
+
+
+
+
+
+    return squaredDifference
+
+
+def stdev(   ,   ,   ):
+
+
+    variance = average (  ,   ,   )
+    return variance**(1/2)
+
+print('The standard deviation of the values 10, 13 and 15 is', stdev(10,13,15))
+</textarea>
+</div></div></div></article><span class="incontext"><a href="functions_chapter-assessment.html#ac4_15_6" class="internal">in-context</a></span>
+</body>
+</html>

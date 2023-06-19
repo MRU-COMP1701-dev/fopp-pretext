@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">13.13.3</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac13_13_3">
+<div class="ac_question col-md-12" id="foppff_1_ac13_13_3_question"><div class="para" id="p-2802">Define a class called <code class="code-inline tex2jax_ignore">BankAccount</code> that accepts the name you want associated with your bank account in a string, and an integer that represents the amount of money in the account. The constructor should initialize two instance variables from those inputs: <code class="code-inline tex2jax_ignore">name</code> and <code class="code-inline tex2jax_ignore">amt</code>. Add a string method so that when you print an instance of <code class="code-inline tex2jax_ignore">BankAccount</code>, you see <code class="code-inline tex2jax_ignore">"Your account, [name goes here], has [start_amt goes here] dollars."</code> Create an instance of this class with <code class="code-inline tex2jax_ignore">"Bob"</code> as the name and <code class="code-inline tex2jax_ignore">100</code> as the amount. Save this to the variable <code class="code-inline tex2jax_ignore">t1</code>.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac13_13_3_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+   def testOne(self):
+      self.assertEqual(t1.__str__(), "Your account, Bob, has 100 dollars.", "Testing that t1 is assigned to correct value")
+
+myTests().main()
+</textarea>
+</div></div></div></article><span class="incontext"><a href="classes_chapter-assessment.html#ac13_13_3" class="internal">in-context</a></span>
+</body>
+</html>

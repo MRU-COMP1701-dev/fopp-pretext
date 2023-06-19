@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.6.4.1</span><span class="period">.</span>
+</h4>current_time_str = input("What is the "current time" (in hours 0-23)?") wait_time_str = input("How many hours do you want to wait") current_time_int = int(current_time_str) wait_time_int = int(wait_time_str) final_time_int = current_time_int + wait_time_int print(final_time_int) The error message points you to line 1 and in this case that is exactly where the error occurs. In this case your biggest clue is to notice the difference in highlighting on the line. Notice that the words “current time” are a different color than those around them. Why is this? Because “current time” is in double quotes inside another pair of double quotes Python thinks that you are finishing off one string, then you have some other names and finally another string. But you haven’t separated these names or strings by commas, and you haven’t added them together with the concatenation operator (+). So, there are several corrections you could make. First you could make the argument to input be as follows: "What is the ’current time’ (in hours 0-23) " Notice that here we have correctly used single quotes inside double quotes . Another option is to simply remove the extra double quotes. Why were you quoting “current time” anyway? "What is the current time (in hours 0-23)" <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">current_time_str = input("What is the "current time" (in hours 0-23)?")
+wait_time_str = input("How many hours do you want to wait")
+
+current_time_int = int(current_time_str)
+wait_time_int = int(wait_time_str)
+
+final_time_int = current_time_int + wait_time_int
+print(final_time_int)
+</code></pre></div> <div class="para">The error message points you to line 1 and in this case that is exactly where the error occurs. In this case your biggest clue is to notice the difference in highlighting on the line. Notice that the words “current time” are a different color than those around them. Why is this? Because “current time” is in double quotes inside another pair of double quotes Python thinks that you are finishing off one string, then you have some other names and finally another string. But you haven’t separated these names or strings by commas, and you haven’t added them together with the concatenation operator (+). So, there are several corrections you could make. First you could make the argument to input be as follows: <code class="code-inline tex2jax_ignore">"What
+        is the 'current time' (in hours 0-23)
+            "</code> Notice that here we have correctly used single quotes inside double quotes . Another option is to simply remove the extra double quotes. Why were you quoting “current time” anyway? <code class="code-inline tex2jax_ignore">"What is the current time (in hours 0-23)"</code>
+</div>
+</div>
+<span class="incontext"><a href="debugging_know-your-error-messages.html#solution-2" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Returning a value from a function</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://runestone.academy/ns/books/published/foppff/functions_returning-a-value-from-a-function.html">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Foundations of Python Programming">
+<meta property="book:author" content="Matthew Hrehirchuk">
+<meta property="book:author" content="Eric Chalmers">
+<meta property="book:author" content="Charlotte Curtis">
+<meta property="book:author" content="Patrick Perri">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = true;
+eBookConfig.host = '';
+eBookConfig.app = eBookConfig.host + '/runestone';
+eBookConfig.course = '~._ course_name _.~';
+eBookConfig.basecourse = '~._ base_course _.~';
+eBookConfig.isLoggedIn = ~._ is_logged_in _.~;
+eBookConfig.email = '~._ user_email _.~';
+eBookConfig.isInstructor = ~._ is_instructor _.~;
+eBookConfig.logLevel = 10;
+eBookConfig.ajaxURL = eBookConfig.app + "/ajax/";
+eBookConfig.username = '~._ user_id _.~';
+eBookConfig.readings = ~._ readings|safe _.~;
+eBookConfig.activities = ~._ activity_info|safe _.~;
+eBookConfig.downloadsEnabled = ~._ downloads_enabled _.~;
+eBookConfig.allow_pairs = ~._ allow_pairs _.~;
+eBookConfig.enableScratchAC = true;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.0dev3';
+</script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><style>.dropdown {
+    position: relative;
+    display: inline-block;
+    height: 39px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+    text-align: center;
+    background-color: #eeeeee;
+    border: 1px solid;
+    border-color: #aaaaaa;
+ }
+ .dropdown-content {
+    position: absolute;
+    display: none;
+    left: 300px;
+    text-align: left;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
+}
+.dropdown:hover {
+    background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+    position: fixed;
+}
+.dropdown-content {
+    background-color: white;
+    z-index: 1800;
+    min-width: 100px;
+    padding: 5px;
+}
+.dropdown-content a {
+    display: block;
+    text-decoration: none;
+    color: #662211;
+}
+.dropdown-content a:hover {
+    background-color: #671d12;
+    color: #ffffff;
+}
+</style>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.71ffd81c0faeb38b.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.e543e0dd19670ae2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1f1f63d2cda36a4d.css">
+</head>
+<body id="foppff" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="fopp-ff.html"><span class="title">Foundations of Python Programming:</span> <span class="subtitle">Functions First</span></a></h1>
+<p class="byline">Matthew Hrehirchuk, Eric Chalmers, Charlotte Curtis, Patrick Perri</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><div class="dropdown">👤<div class="dropdown-content">
+{% if settings.academy_mode: %}
+<a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
+<a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
+<a href="/runestone/default/courses">Change Course</a><hr>
+<a id="ip_dropdown_link" href="/runestone/admin/index">Instructor's Page</a><hr>
+{% endif %}
+<a href="/runestone/dashboard/studentreport">Progress Page</a><hr>
+{% if is_logged_in %}
+<a href="/runestone/default/user/profile">Edit Profile</a><a href="/runestone/default/user/change_password">Change Password</a><a href="/runestone/default/user/logout">Log Out</a>
+{% else %}
+<a href="/runestone/default/user/register">Register</a><a href="/runestone/default/user/login">Login</a>
+{% endif %}
+</div>
+</div>
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="functions_function-parameters.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter-4.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="functions_decoding-a-function.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter-1.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="front-back-matter_foreword.html" class="internal"><span class="codenumber">1</span> <span class="title">Foreword to the Functions First Edition</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_foreword_og.html" class="internal"><span class="codenumber">2</span> <span class="title">Original Foreword</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_contributor-list.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-1.html" class="internal"><span class="codenumber">1</span> <span class="title">General Introduction</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="general-intro_introduction-the-way-of-the-program.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The Way of the Program</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="general-intro_introduction-the-way-of-the-program.html#general-intro_learning-goals" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_introduction-the-way-of-the-program.html#general-intro_objectives" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Objectives</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="general-intro_algorithms.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Algorithms</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_the-python-programming-language.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The Python Programming Language</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_special-ways-to-execute-python-in-this-book.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Special Ways to Execute Python in this Book</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_more-about-programs.html" class="internal"><span class="codenumber">1.5</span> <span class="title">More About Programs</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_formal-and-natural-languages.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Formal and Natural Languages</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_a-typical-first-program.html" class="internal"><span class="codenumber">1.7</span> <span class="title">A Typical First Program</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_predict-before-you-run.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Predict Before You Run!</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_to-understand-a-program-change-it.html" class="internal"><span class="codenumber">1.9</span> <span class="title">To Understand a Program, Change It!</span></a></div></li>
+<li><div class="toc-item"><a href="general-intro_comments.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Comments</span></a></div></li>
+<li>
+<div class="toc-item"><a href="general-intro_glossary.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Glossary</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="general-intro_glossary.html#glossary-1" class="internal"><span class="codenumber">1.11</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-2.html" class="internal"><span class="codenumber">2</span> <span class="title">Variables, Statements, and Expressions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="simple-python-data_introduction.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="simple-python-data_introduction.html#simple-python-data_learning-goals" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_introduction.html#simple-python-data_objectives" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Objectives</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="simple-python-data_values-and-data-types.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Values and Data Types</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_operators-and-operands.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Operators and Operands</span></a></div></li>
+<li>
+<div class="toc-item"><a href="simple-python-data_function-calls.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Function Calls</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="simple-python-data_function-calls.html#simple-python-data_function-calls-as-part-of-complex-expressions" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Function calls as part of complex expressions</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_function-calls.html#simple-python-data_functions-are-objects-parentheses-invoke-functions" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Functions are objects; parentheses invoke functions</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="simple-python-data_data-types.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Data Types</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_type-conversion-functions.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Type conversion functions</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_variables.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Variables</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_variable-names-and-keywords.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Variable Names and Keywords</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_choosing-the-right-variable-name.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Choosing the Right Variable Name</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_statements-and-expressions.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Statements and Expressions</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_order-of-operations.html" class="internal"><span class="codenumber">2.11</span> <span class="title">Order of Operations</span></a></div></li>
+<li>
+<div class="toc-item"><a href="simple-python-data_reassignment.html" class="internal"><span class="codenumber">2.12</span> <span class="title">Reassignment</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="simple-python-data_reassignment.html#simple-python-data_reassignment_developing-your-mental-model-of-how-python-evaluates" class="internal"><span class="codenumber">2.12.1</span> <span class="title">Developing your mental model of How Python Evaluates</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="simple-python-data_updating-variables.html" class="internal"><span class="codenumber">2.13</span> <span class="title">Updating Variables</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_hard-coding.html" class="internal"><span class="codenumber">2.14</span> <span class="title">Hard-Coding</span></a></div></li>
+<li><div class="toc-item"><a href="simple-python-data_input.html" class="internal"><span class="codenumber">2.15</span> <span class="title">Input</span></a></div></li>
+<li>
+<div class="toc-item"><a href="simple-python-data_glossary.html" class="internal"><span class="codenumber">2.16</span> <span class="title">Glossary</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="simple-python-data_glossary.html#glossary-2" class="internal"><span class="codenumber">2.16</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="simple-python-data_chapter-assessment.html" class="internal"><span class="codenumber">2.17</span> <span class="title">Chapter Assessment</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-3.html" class="internal"><span class="codenumber">3</span> <span class="title">Debugging</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="debugging_introduction-to-debugging.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Introduction to Debugging</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="debugging_introduction-to-debugging.html#debugging_learning-goals" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li><div class="toc-item"><a href="debugging_introduction-to-debugging.html#debugging_objectives" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Objectives</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="debugging_beginning-tips-for-debugging.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Beginning tips for Debugging</span></a></div></li>
+<li><div class="toc-item"><a href="debugging_syntax-errors.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Syntax errors</span></a></div></li>
+<li><div class="toc-item"><a href="debugging_runtime-errors.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Runtime Errors</span></a></div></li>
+<li>
+<div class="toc-item"><a href="debugging_semantic-errors.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Semantic Errors</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="debugging_semantic-errors.html#debugging_semantic-errors_test-cases" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Test Cases</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="debugging_know-your-error-messages.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Know Your Error Messages</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="debugging_know-your-error-messages.html#debugging_syntaxerror" class="internal"><span class="codenumber">3.6.1</span> <span class="title">SyntaxError</span></a></div></li>
+<li><div class="toc-item"><a href="debugging_know-your-error-messages.html#debugging_typeerror" class="internal"><span class="codenumber">3.6.2</span> <span class="title">TypeError</span></a></div></li>
+<li><div class="toc-item"><a href="debugging_know-your-error-messages.html#debugging_nameerror" class="internal"><span class="codenumber">3.6.3</span> <span class="title">NameError</span></a></div></li>
+<li><div class="toc-item"><a href="debugging_know-your-error-messages.html#debugging_valueerror" class="internal"><span class="codenumber">3.6.4</span> <span class="title">ValueError</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-4.html" class="internal"><span class="codenumber">4</span> <span class="title">Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="functions_introduction-to-functions.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="functions_introduction-to-functions.html#functions_introduction-to-functions_topics" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Topics</span></a></div></li>
+<li><div class="toc-item"><a href="functions_introduction-to-functions.html#functions_introduction-to-functions_learning-objectives" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Learning Objectives</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="functions_function-definition.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Function Definition</span></a></div></li>
+<li><div class="toc-item"><a href="functions_function-invocation.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Function Invocation</span></a></div></li>
+<li><div class="toc-item"><a href="functions_function-parameters.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Function Parameters</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="functions_returning-a-value-from-a-function.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Returning a value from a function</span></a></div></li>
+<li><div class="toc-item"><a href="functions_decoding-a-function.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Decoding a Function</span></a></div></li>
+<li><div class="toc-item"><a href="functions_type-annotations.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Type Annotations</span></a></div></li>
+<li><div class="toc-item"><a href="functions_variables-and-parameters-are-local.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Variables and parameters are local</span></a></div></li>
+<li><div class="toc-item"><a href="functions_global-variables.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Global Variables</span></a></div></li>
+<li><div class="toc-item"><a href="functions_functions-can-call-other-functions-composition.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Functions can call other functions (Composition)</span></a></div></li>
+<li><div class="toc-item"><a href="functions_flow-of-execution-summary.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Flow of Execution Summary</span></a></div></li>
+<li><div class="toc-item"><a href="functions_print-vs-return.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Print vs. return</span></a></div></li>
+<li>
+<div class="toc-item"><a href="functions_glossary.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Glossary</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="functions_glossary.html#glossary-3" class="internal"><span class="codenumber">4.13</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="functions_chapter-assessment.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Chapter Assessment</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-5.html" class="internal"><span class="codenumber">5</span> <span class="title">Conditionals</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="conditionals_intro-what-we-can-do-with-turtles-and-conditionals.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Intro: What we can do with Turtles and Conditionals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="conditionals_intro-what-we-can-do-with-turtles-and-conditionals.html#conditionals_learning-goals" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li><div class="toc-item"><a href="conditionals_intro-what-we-can-do-with-turtles-and-conditionals.html#conditionals_objectives" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Objectives</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="conditionals_boolean-values-and-boolean-expressions.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Boolean Values and Boolean Expressions</span></a></div></li>
+<li>
+<div class="toc-item"><a href="conditionals_logical-operators.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Logical operators</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="conditionals_logical-operators.html#conditionals_smart-evaluation" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Smart Evaluation</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="conditionals_the-in-and-not-in-operators.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The <code class="code-inline tex2jax_ignore">in</code> and <code class="code-inline tex2jax_ignore">not in</code> operators</span></a></div></li>
+<li><div class="toc-item"><a href="conditionals_precedence-of-operators.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Precedence of Operators</span></a></div></li>
+<li><div class="toc-item"><a href="conditionals_conditional-execution-binary-selection.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Conditional Execution: Binary Selection</span></a></div></li>
+<li><div class="toc-item"><a href="conditionals_omitting-the-else-clause-unary-selection.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Omitting the <code class="code-inline tex2jax_ignore">else</code> Clause: Unary Selection</span></a></div></li>
+<li><div class="toc-item"><a href="conditionals_nested-conditionals.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Nested conditionals</span></a></div></li>
+<li><div class="toc-item"><a href="conditionals_chained-conditionals.html" class="internal"><span class="codenumber">5.9</span> <span class="title">Chained conditionals</span></a></div></li>
+<li>
+<div class="toc-item"><a href="conditionals_setting-up-conditionals.html" class="internal"><span class="codenumber">5.10</span> <span class="title">Setting Up Conditionals</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="conditionals_setting-up-conditionals.html#conditionals_choosing-your-type-of-conditional" class="internal"><span class="codenumber">5.10.1</span> <span class="title">Choosing your type of Conditional</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="conditionals_glossary.html" class="internal"><span class="codenumber">5.11</span> <span class="title">Glossary</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="conditionals_glossary.html#glossary-4" class="internal"><span class="codenumber">5.11</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-6.html" class="internal"><span class="codenumber">6</span> <span class="title">Iteration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="iteration_introduction.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="iteration_introduction.html#iteration_learning-goals" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li><div class="toc-item"><a href="iteration_introduction.html#iteration_objectives" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Objectives</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="more-about-iteration_the-while-statement.html" class="internal"><span class="codenumber">6.2</span> <span class="title">The <code class="code-inline tex2jax_ignore">while</code> Statement</span></a></div></li>
+<li>
+<div class="toc-item"><a href="iteration_the-listener-loop.html" class="internal"><span class="codenumber">6.3</span> <span class="title">The Listener Loop</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="iteration_the-listener-loop.html#iteration_other-uses-of-while" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Other uses of <code class="code-inline tex2jax_ignore">while</code></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="iteration_the-listener-loop.html#iteration_sentinel-values" class="internal"><span class="codenumber">6.3.1.1</span> <span class="title">Sentinel Values</span></a></div></li>
+<li><div class="toc-item"><a href="iteration_the-listener-loop.html#iteration_validating-input" class="internal"><span class="codenumber">6.3.1.2</span> <span class="title">Validating Input</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li><div class="toc-item"><a href="iteration_break-and-continue.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Break and Continue</span></a></div></li>
+<li><div class="toc-item"><a href="iteration_infinite-loops.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Infinite Loops</span></a></div></li>
+<li><div class="toc-item"><a href="iteration_chapter-assessment.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Chapter Assessment</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-7.html" class="internal"><span class="codenumber">7</span> <span class="title">More About Iteration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="more-about-iteration_introduction-iteration.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Introduction: Iteration</span></a></div></li>
+<li><div class="toc-item"><a href="more-about-iteration_the-for-loop.html" class="internal"><span class="codenumber">7.2</span> <span class="title">The for loop</span></a></div></li>
+<li><div class="toc-item"><a href="more-about-iteration_flow-of-execution-of-the-for-loop.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Flow of Execution of the for Loop</span></a></div></li>
+<li><div class="toc-item"><a href="more-about-iteration_strings-and-for-loops.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Strings and <code class="code-inline tex2jax_ignore">for</code> loops</span></a></div></li>
+<li><div class="toc-item"><a href="more-about-iteration_the-accumulator-pattern.html" class="internal"><span class="codenumber">7.5</span> <span class="title">The Accumulator Pattern</span></a></div></li>
+<li><div class="toc-item"><a href="more-about-iteration_printing-intermediate-results.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Printing Intermediate Results</span></a></div></li>
+<li><div class="toc-item"><a href="more-about-iteration_naming-variables-in-for-loops.html" class="internal"><span class="codenumber">7.7</span> <span class="title">Naming Variables in For Loops</span></a></div></li>
+<li>
+<div class="toc-item"><a href="more-about-iteration_glossary.html" class="internal"><span class="codenumber">7.8</span> <span class="title">Glossary</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="more-about-iteration_glossary.html#glossary-5" class="internal"><span class="codenumber">7.8</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-8.html" class="internal"><span class="codenumber">8</span> <span class="title">Sequences</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sequences_introduction-sequences.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Introduction: Sequences</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sequences_introduction-sequences.html#sequences_introduction-sequences_learning-goals" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li><div class="toc-item"><a href="sequences_introduction-sequences.html#sequences_introduction-sequences_objectives" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Objectives</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sequences_strings-and-lists.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Strings and Lists</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sequences_strings-and-lists.html#sequences_strings-and-lists_strings" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Strings</span></a></div></li>
+<li><div class="toc-item"><a href="sequences_strings-and-lists.html#sequences_strings-and-lists_lists" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Lists</span></a></div></li>
+<li><div class="toc-item"><a href="sequences_strings-and-lists.html#sequences_strings-and-lists_tuples" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Tuples</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sequences_index-operator-working-with-the-characters-of-a-string.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Index Operator: Working with the Characters of a String</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sequences_index-operator-working-with-the-characters-of-a-string.html#sequences_index-operator-accessing-elements-of-a-list-or-tuple" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Index Operator: Accessing Elements of a List or Tuple</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="sequences_disambiguating-creation-vs-indexing.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Disambiguating []: creation vs indexing</span></a></div></li>
+<li><div class="toc-item"><a href="sequences_length.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Length</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sequences_the-slice-operator.html" class="internal"><span class="codenumber">8.6</span> <span class="title">The Slice Operator</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sequences_the-slice-operator.html#sequences_list-slices" class="internal"><span class="codenumber">8.6.1</span> <span class="title">List Slices</span></a></div></li>
+<li><div class="toc-item"><a href="sequences_the-slice-operator.html#sequences_tuple-slices" class="internal"><span class="codenumber">8.6.2</span> <span class="title">Tuple Slices</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sequences_concatenation-and-repetition.html" class="internal"><span class="codenumber">8.7</span> <span class="title">Concatenation and Repetition</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sequences_count-and-index.html" class="internal"><span class="codenumber">8.8</span> <span class="title">Count and Index</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sequences_count-and-index.html#sequences_count" class="internal"><span class="codenumber">8.8.1</span> <span class="title">Count</span></a></div></li>
+<li><div class="toc-item"><a href="sequences_count-and-index.html#sequences_index" class="internal"><span class="codenumber">8.8.2</span> <span class="title">Index</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sequences_splitting-and-joining-strings.html" class="internal"><span class="codenumber">8.9</span> <span class="title">Splitting and Joining Strings</span></a></div></li>
+<li><div class="toc-item"><a href="sequences_chapter-assessment.html" class="internal"><span class="codenumber">8.10</span> <span class="title">Chapter Assessment</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-9.html" class="internal"><span class="codenumber">9</span> <span class="title">Transforming Sequences</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="transforming-sequences_introduction-transforming-sequences.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Introduction: Transforming Sequences</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="transforming-sequences_introduction-transforming-sequences.html#transforming-sequences_learning-goals" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_introduction-transforming-sequences.html#transforming-sequences_objectives" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Objectives</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="transforming-sequences_mutability.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Mutability</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="transforming-sequences_mutability.html#transforming-sequences_lists-are-mutable" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Lists are Mutable</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_mutability.html#transforming-sequences_strings-are-immutable" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Strings are Immutable</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_mutability.html#transforming-sequences_tuples-are-immutable" class="internal"><span class="codenumber">9.2.3</span> <span class="title">Tuples are Immutable</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="transforming-sequences_list-element-deletion.html" class="internal"><span class="codenumber">9.3</span> <span class="title">List Element Deletion</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_objects-and-references.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Objects and References</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_aliasing.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Aliasing</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_cloning-lists.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Cloning Lists</span></a></div></li>
+<li>
+<div class="toc-item"><a href="transforming-sequences_mutating-methods.html" class="internal"><span class="codenumber">9.7</span> <span class="title">Mutating Methods</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="transforming-sequences_mutating-methods.html#transforming-sequences_list-methods" class="internal"><span class="codenumber">9.7.1</span> <span class="title">List Methods</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="transforming-sequences_append-versus-concatenate.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Append versus Concatenate</span></a></div></li>
+<li>
+<div class="toc-item"><a href="transforming-sequences_non-mutating-methods-on-strings.html" class="internal"><span class="codenumber">9.9</span> <span class="title">Non-mutating Methods on Strings</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="transforming-sequences_non-mutating-methods-on-strings.html#transforming-sequences_string-format-method" class="internal"><span class="codenumber">9.9.1</span> <span class="title">FStrings</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="transforming-sequences_the-accumulator-pattern-with-lists.html" class="internal"><span class="codenumber">9.10</span> <span class="title">The Accumulator Pattern with Lists</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_the-accumulator-pattern-with-strings.html" class="internal"><span class="codenumber">9.11</span> <span class="title">The Accumulator Pattern with Strings</span></a></div></li>
+<li>
+<div class="toc-item"><a href="transforming-sequences_accumulator-pattern-strategies.html" class="internal"><span class="codenumber">9.12</span> <span class="title">Accumulator Pattern Strategies</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="transforming-sequences_accumulator-pattern-strategies.html#transforming-sequences_when-to-use-it" class="internal"><span class="codenumber">9.12.1</span> <span class="title">When to Use it</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_accumulator-pattern-strategies.html#transforming-sequences_before-writing-it" class="internal"><span class="codenumber">9.12.2</span> <span class="title">Before Writing it</span></a></div></li>
+<li><div class="toc-item"><a href="transforming-sequences_accumulator-pattern-strategies.html#transforming-sequences_choosing-good-accumulator-and-iterator-variable-names" class="internal"><span class="codenumber">9.12.3</span> <span class="title">Choosing Good Accumulator and Iterator Variable Names</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="transforming-sequences_dont-mutate-a-list-that-you-are-iterating-through.html" class="internal"><span class="codenumber">9.13</span> <span class="title">Don’t Mutate A List That You Are Iterating Through</span></a></div></li>
+<li>
+<div class="toc-item"><a href="transforming-sequences_summary.html" class="internal"><span class="codenumber">9.14</span> <span class="title">Summary</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="transforming-sequences_summary.html#glossary-6" class="internal"><span class="codenumber">9.14</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-10.html" class="internal"><span class="codenumber">10</span> <span class="title">Nested Data and Nested Iteration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="nested-data_introduction-nested-data-and-nested-iteration.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Introduction: Nested Data and Nested Iteration</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="nested-data_introduction-nested-data-and-nested-iteration.html#nested-data_lists-with-complex-items" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Lists with Complex Items</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="nested-data_nested-dictionaries.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Nested Dictionaries</span></a></div></li>
+<li><div class="toc-item"><a href="nested-data_processing-json-results.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Processing JSON results</span></a></div></li>
+<li><div class="toc-item"><a href="nested-data_nested-iteration.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Nested Iteration</span></a></div></li>
+<li><div class="toc-item"><a href="nested-data_structuring-nested-data.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Structuring Nested Data</span></a></div></li>
+<li><div class="toc-item"><a href="nested-data_deep-and-shallow-copies.html" class="internal"><span class="codenumber">10.6</span> <span class="title">Deep and Shallow Copies</span></a></div></li>
+<li><div class="toc-item"><a href="nested-data_chapter-assessment.html" class="internal"><span class="codenumber">10.7</span> <span class="title">Chapter Assessment</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-11.html" class="internal"><span class="codenumber">11</span> <span class="title">Files</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="files_introduction-working-with-data-files.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Introduction: Working with Data Files</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="files_introduction-working-with-data-files.html#files_learning-goals" class="internal"><span class="codenumber">11.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li><div class="toc-item"><a href="files_introduction-working-with-data-files.html#files_objectives" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Objectives</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="files_reading-a-file.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Reading a File</span></a></div></li>
+<li><div class="toc-item"><a href="files_alternative-file-reading-methods.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Alternative File Reading Methods</span></a></div></li>
+<li><div class="toc-item"><a href="files_iterating-over-lines-in-a-file.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Iterating over lines in a file</span></a></div></li>
+<li><div class="toc-item"><a href="files_finding-a-file-in-your-filesystem.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Finding a File in your Filesystem</span></a></div></li>
+<li><div class="toc-item"><a href="files_using-with-for-files.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Using <code class="code-inline tex2jax_ignore">with</code> for Files</span></a></div></li>
+<li><div class="toc-item"><a href="files_recipe-for-reading-and-processing-a-file.html" class="internal"><span class="codenumber">11.7</span> <span class="title">Recipe for Reading and Processing a File</span></a></div></li>
+<li><div class="toc-item"><a href="files_writing-text-files.html" class="internal"><span class="codenumber">11.8</span> <span class="title">Writing Text Files</span></a></div></li>
+<li><div class="toc-item"><a href="files_csv-format.html" class="internal"><span class="codenumber">11.9</span> <span class="title">CSV Format</span></a></div></li>
+<li><div class="toc-item"><a href="files_reading-in-data-from-a-csv-file.html" class="internal"><span class="codenumber">11.10</span> <span class="title">Reading in data from a CSV File</span></a></div></li>
+<li><div class="toc-item"><a href="files_writing-data-to-a-csv-file.html" class="internal"><span class="codenumber">11.11</span> <span class="title">Writing data to a CSV File</span></a></div></li>
+<li><div class="toc-item"><a href="files_tips-on-handling-files.html" class="internal"><span class="codenumber">11.12</span> <span class="title">Tips on Handling Files</span></a></div></li>
+<li>
+<div class="toc-item"><a href="files_glossary.html" class="internal"><span class="codenumber">11.13</span> <span class="title">Glossary</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="files_glossary.html#glossary-7" class="internal"><span class="codenumber">11.13</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="files_chapter-assessment.html" class="internal"><span class="codenumber">11.14</span> <span class="title">Chapter Assessment</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-12.html" class="internal"><span class="codenumber">12</span> <span class="title">Exceptions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="exceptions_when-to-use-try-except.html" class="internal"><span class="codenumber">12.1</span> <span class="title">When to use try/except</span></a></div></li>
+<li><div class="toc-item"><a href="exceptions_standard-exceptions79_index-0.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Standard Exceptions</span></a></div></li>
+<li><div class="toc-item"><a href="exceptions_chapter-assessment.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Chapter Assessment</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-13.html" class="internal"><span class="codenumber">13</span> <span class="title">Defining your own Classes</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="classes_introduction-classes-and-objects-the-basics.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Introduction: Classes and Objects - the Basics</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="classes_introduction-classes-and-objects-the-basics.html#classes_object-oriented-programming" class="internal"><span class="codenumber">13.1.1</span> <span class="title">Object-oriented programming</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="classes_objects-revisited.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Objects Revisited</span></a></div></li>
+<li><div class="toc-item"><a href="classes_user-defined-classes.html" class="internal"><span class="codenumber">13.3</span> <span class="title">User Defined Classes</span></a></div></li>
+<li><div class="toc-item"><a href="classes_adding-parameters-to-the-constructor.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Adding Parameters to the Constructor</span></a></div></li>
+<li><div class="toc-item"><a href="classes_adding-other-methods-to-a-class.html" class="internal"><span class="codenumber">13.5</span> <span class="title">Adding Other Methods to a Class</span></a></div></li>
+<li><div class="toc-item"><a href="classes_objects-as-arguments-and-parameters.html" class="internal"><span class="codenumber">13.6</span> <span class="title">Objects as Arguments and Parameters</span></a></div></li>
+<li><div class="toc-item"><a href="classes_converting-an-object-to-a-string.html" class="internal"><span class="codenumber">13.7</span> <span class="title">Converting an Object to a String</span></a></div></li>
+<li><div class="toc-item"><a href="classes_instances-as-return-values.html" class="internal"><span class="codenumber">13.8</span> <span class="title">Instances as Return Values</span></a></div></li>
+<li><div class="toc-item"><a href="classes_class-variables-and-instance-variables.html" class="internal"><span class="codenumber">13.9</span> <span class="title">Class Variables and Instance Variables</span></a></div></li>
+<li><div class="toc-item"><a href="classes_thinking-about-classes-and-instances.html" class="internal"><span class="codenumber">13.10</span> <span class="title">Thinking About Classes and Instances</span></a></div></li>
+<li><div class="toc-item"><a href="classes_a-tamagotchi-game.html" class="internal"><span class="codenumber">13.11</span> <span class="title">A Tamagotchi Game</span></a></div></li>
+<li>
+<div class="toc-item"><a href="classes_glossary.html" class="internal"><span class="codenumber">13.12</span> <span class="title">Glossary</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="classes_glossary.html#glossary-8" class="internal"><span class="codenumber">13.12</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="classes_chapter-assessment.html" class="internal"><span class="codenumber">13.13</span> <span class="title">Chapter Assessment</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-14.html" class="internal"><span class="codenumber">14</span> <span class="title">Additional Resources</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="additional_resources-command_line.html" class="internal"><span class="codenumber">14.1</span> <span class="title">The Command Line</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="additional_resources-command_line.html#command_line-git-bash" class="internal"><span class="codenumber">14.1.1</span> <span class="title">GitBash</span></a></div></li>
+<li>
+<div class="toc-item"><a href="additional_resources-command_line.html#command_line-commands" class="internal"><span class="codenumber">14.1.2</span> <span class="title">Commands</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="additional_resources-command_line.html#command_line-commands-navigation" class="internal"><span class="codenumber">14.1.2.1</span> <span class="title">Navigation Commands</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-command_line.html#command_line-commands-files_directories" class="internal"><span class="codenumber">14.1.2.2</span> <span class="title">File and Directory Commands</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="additional_resources-intro-to-git.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Intro to Git</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="additional_resources-intro-to-git.html#intro-to-git_the-history-of-git" class="internal"><span class="codenumber">14.2.1</span> <span class="title">The History of Git</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-intro-to-git.html#intro-to-git_repositories" class="internal"><span class="codenumber">14.2.2</span> <span class="title">Repositories</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-intro-to-git.html#intro-to-git_cloning-a-repository" class="internal"><span class="codenumber">14.2.3</span> <span class="title">Cloning a Repository</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-intro-to-git.html#intro-to-git_staging-and-committing" class="internal"><span class="codenumber">14.2.4</span> <span class="title">Staging and Committing</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-intro-to-git.html#intro-to-git_pushing-and-pulling" class="internal"><span class="codenumber">14.2.5</span> <span class="title">Pushing and Pulling</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="additional_resources-advanced-git.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Advanced Git</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="additional_resources-advanced-git.html#advanced-git_conflicts" class="internal"><span class="codenumber">14.3.1</span> <span class="title">Conflicts</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-advanced-git.html#advanced-git_branching" class="internal"><span class="codenumber">14.3.2</span> <span class="title">Branching</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-advanced-git.html#advanced-git_merging" class="internal"><span class="codenumber">14.3.3</span> <span class="title">Merging Branches</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-advanced-git.html#advanced-git_rebasing" class="internal"><span class="codenumber">14.3.4</span> <span class="title">Rebasing</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-advanced-git.html#advanced-git_stashing" class="internal"><span class="codenumber">14.3.5</span> <span class="title">Stashing</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="additional_resources-books-bookshelves.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Comprehensive Practice Program: Books and Bookshelves</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="additional_resources-books-bookshelves.html#subsec-additonal_resources-books-bookshelves-adding-books" class="internal"><span class="codenumber">14.4.1</span> <span class="title">Adding Some Books</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-books-bookshelves.html#additonal_resources-books-bookshelves-confirming-books" class="internal"><span class="codenumber">14.4.2</span> <span class="title">Confirming Book Data</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-books-bookshelves.html#additonal_resources-books-bookshelves-searching-books" class="internal"><span class="codenumber">14.4.3</span> <span class="title">Searching for Books</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-books-bookshelves.html#additonal_resources-books-bookshelves-adding-more-books" class="internal"><span class="codenumber">14.4.4</span> <span class="title">Filling Up Bookshelves</span></a></div></li>
+<li><div class="toc-item"><a href="additional_resources-books-bookshelves.html#additonal_resources-books-bookshelves-final-touches" class="internal"><span class="codenumber">14.4.5</span> <span class="title">Final Touches</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter-1.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="front-back-matter_gnu-free-documentation-license.html" class="internal"><span class="codenumber">A</span> <span class="title">GNU Free Documentation License</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="front-back-matter_preamble.html" class="internal"><span class="codenumber">A.1</span> <span class="title">0. PREAMBLE</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_applicability-and-definitions.html" class="internal"><span class="codenumber">A.2</span> <span class="title">1. APPLICABILITY AND DEFINITIONS</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_verbatim-copying.html" class="internal"><span class="codenumber">A.3</span> <span class="title">2. VERBATIM COPYING</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_copying-in-quantity.html" class="internal"><span class="codenumber">A.4</span> <span class="title">3. COPYING IN QUANTITY</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_modifications.html" class="internal"><span class="codenumber">A.5</span> <span class="title">4. MODIFICATIONS</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_combining-documents.html" class="internal"><span class="codenumber">A.6</span> <span class="title">5. COMBINING DOCUMENTS</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_collections-of-documents.html" class="internal"><span class="codenumber">A.7</span> <span class="title">6. COLLECTIONS OF DOCUMENTS</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_aggregation-with-independent-works.html" class="internal"><span class="codenumber">A.8</span> <span class="title">7. AGGREGATION WITH INDEPENDENT WORKS</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_translation.html" class="internal"><span class="codenumber">A.9</span> <span class="title">8. TRANSLATION</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_termination.html" class="internal"><span class="codenumber">A.10</span> <span class="title">9. TERMINATION</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_future-revisions-of-this-license.html" class="internal"><span class="codenumber">A.11</span> <span class="title">10. FUTURE REVISIONS OF THIS LICENSE</span></a></div></li>
+<li><div class="toc-item"><a href="front-back-matter_relicensing.html" class="internal"><span class="codenumber">A.12</span> <span class="title">11. RELICENSING</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="front-back-matter_copyright-notice.html" class="internal"><span class="codenumber">B</span> <span class="title">Copyright Notice</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="functions_returning-a-value-from-a-function"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.5</span> <span class="title">Returning a value from a function</span>
+</h2>
+<div class="para" id="p-1007">The functions we’ve used as examples thus far have not been all that useful: we enclosed <code class="code-inline tex2jax_ignore">print()</code> functions within our own function, as a way to illustrate parameters, when we could have just used the <code class="code-inline tex2jax_ignore">print()</code> functions on their own. And, the functions we’ve defined so far don’t do much to be useful to help solve a decomposed larger problem. One of the reasons that our illustrative functions don’t appear to be useful is because few of them have returned a value. In this section we will discuss how to create more useful functions that produce useful data for our problem solving.</div>
+<div class="para" id="p-1008">Functions that don’t return a value are sometimes called <dfn class="terminology">procedures</dfn>, <dfn class="terminology">non-fruitful</dfn> or <dfn class="terminology">void functions</dfn>. Notice how in the function header example below the function definition indicates the function returns <code class="code-inline tex2jax_ignore">-&gt; None</code>, that there is no data being processed, and that there is no <code class="code-inline tex2jax_ignore">return</code> statement. <dfn class="terminology">None</dfn> is a special Python value used to indicate no value at all.</div>
+<article class="note remark-like" id="note-23"><h3 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">4.5.1</span><span class="period">.</span>
+</h3>
+<em class="alert">None</em> is not the same as 0, False, or an empty string (<code class="code-inline tex2jax_ignore">""</code>). It is its own data type (<code class="code-inline tex2jax_ignore">NoneType</code>). Some other computer languages use the term <code class="code-inline tex2jax_ignore">null</code>.</article><div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_2_1"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_2_1_editor" data-question_label="" data-codelens="true">def hello() -&gt; None:
+    """This function says hello and greets you
+    but no value is returned."""
+    print("Hello")
+    print("Glad to meet you")
+</textarea></div></div></div>
+<div class="para" id="p-1009">More usefully, a function can also be used to produce a value from from one or more parameters.</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Functions/Figures/function_call.gif" class="contained"></div>
+<div class="para" id="p-1010">You probably can appreciate how a built-in Python function like <code class="code-inline tex2jax_ignore">= abs()</code> will find, and then return, the absolute value of a provided number. Or how <code class="code-inline tex2jax_ignore">= input()</code> returns anything a user types on the keyboard as a string.</div>
+<div class="para" id="p-1011">These kinds of functions, ones that return values are sometimes called <dfn class="terminology">fruitful functions</dfn> because they <em class="emphasis">produce</em> a result.</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Functions/Figures/blackboxfun.png" class="contained"></div>
+<div class="para" id="p-1012">How do we write our own fruitful function? Let’s start by creating a very simple mathematical function that we will call <code class="code-inline tex2jax_ignore">square</code>. The square function will take one number as a parameter and return the result of squaring that number. Here is the black-box diagram with the Python code following.</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Functions/Figures/squarefun.png" class="contained"></div>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_5_1"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_5_1_editor" data-question_label="" data-codelens="true">def square(an_integer: int) -&gt; int:
+    """With any integer, this function will produce its squared value."""
+    result = an_integer * an_integer
+    return result
+
+the_integer = 10
+result = square(the_integer)
+print(f"The result of {the_integer} squared is {result}.")
+another_integer = 11
+result = square(another_integer)
+print(f"The result of {another_integer} squared is {result}.")
+</textarea></div></div></div>
+<div class="para" id="p-1013">The <dfn class="terminology">return</dfn> statement is followed by an expression which is evaluated. Its result is returned to the caller (the line of code that invoked the function) as the “fruit” of calling this function. Because the return statement can contain any Python expression we could have avoided creating the <dfn class="terminology">temporary variable</dfn> <code class="code-inline tex2jax_ignore">result</code> and simply used <code class="code-inline tex2jax_ignore">return an_integer * an_integer</code>. Try modifying the square function above to see that this works just the same. On the other hand, using <dfn class="terminology">temporary variables</dfn> like <code class="code-inline tex2jax_ignore">result</code> in the function above makes debugging easier, especially when a function is a many step process. These temporary variables are referred to as <dfn class="terminology">local variables</dfn>. In general, programmers should not try to place a multiple step process into the <code class="code-inline tex2jax_ignore">return</code> statement.</div>
+<div class="para" id="p-1014">Notice something important here: the name of the variable we pass as an argument does not have to have anything to do with the name of the formal parameter — <code class="code-inline tex2jax_ignore">an_integer</code>. You can see this very clearly in the Codelens: it doesn’t matter what names the caller uses — <code class="code-inline tex2jax_ignore">the_integer</code> or <code class="code-inline tex2jax_ignore">another_integer</code>). When <code class="code-inline tex2jax_ignore">square</code> is executed, inside that function, its parameter, a local variable — <code class="code-inline tex2jax_ignore">an_integer</code>, is given the value that is passed, the <em class="emphasis">local temporary</em> variable — <code class="code-inline tex2jax_ignore">result</code> is determined, and finally, is the return value that the function produces.</div>
+<div class="para" id="p-1015">Return the previous CodeLens example and step through the code once again. This time make note of the <em class="emphasis">Frames</em> being displayed, the appearance (and disappearance of) those variables in those frames, and the values of the variables.</div>
+<div class="para" id="p-1016">When we suggested earlier that functions could be <em class="emphasis">generalized</em>, this illustrates what we meant. A fruitful function should be coded to deal with any value of parameter(s), process things, and then to provide a value based on its parameter(s). Thus, our <code class="code-inline tex2jax_ignore">square</code> function can work <code class="code-inline tex2jax_ignore">"""With any integer..."""</code>.</div>
+<div class="para" id="p-1017">It should also be apparent that using <em class="emphasis">self-documenting</em> variables names, like <code class="code-inline tex2jax_ignore">the_integer</code> and <code class="code-inline tex2jax_ignore">another_integer</code>, make clearer what is being passed to the function and what variables are local to the function (<code class="code-inline tex2jax_ignore">an_integer</code> and <code class="code-inline tex2jax_ignore">result</code>). And, using these kinds of self-documenting variable names makes the code easier to design, develop and debug.</div>
+<div class="para" id="p-1018">There is one more aspect of fruitful functions. By default, all Python functions return the special value <code class="code-inline tex2jax_ignore">None</code> to indicate there is no value at all. This is not the same as <code class="code-inline tex2jax_ignore">0</code>, <code class="code-inline tex2jax_ignore">False</code>, nor an empty string <code class="code-inline tex2jax_ignore">""</code>.</div>
+<article class="note remark-like" id="note-24"><h3 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">4.5.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-1019">A function will only return a non-None value if it includes an explicit return statement with a value in the function’s body.</div></article><div class="para" id="p-1020">Notice in the following how the <code class="code-inline tex2jax_ignore">square</code> function does not contain a <code class="code-inline tex2jax_ignore">return</code> statement. As you step through this example, pay very close attention to the Return Value in the square function’s frame. Then look at what is printed when the function is over.</div>
+<div class="ptx-runestone-container"><div class="runestone codelens">
+<div class="cd_section" data-component="codelens" data-question_label=""><div class="pytutorVisualizer" id="foppff_1_clens4_5_2" data-params='{"embeddedMode": true, "lang": "python", "jumpToEnd": false}'></div></div>
+<script src="generated/trace/clens4_5_2.js"></script>
+</div></div>
+<div class="para" id="p-1021">A problem with this function is that even though it prints the resulting squared value (line 3), that value will not be available to be subsequently displayable, accessed nor used after the function has been executed. Instead, the value <code class="code-inline tex2jax_ignore">None</code> will be returned to the caller’s scope. Since line 6 assigns the function’s return value to <code class="code-inline tex2jax_ignore">square_result</code>, that variable will have <code class="code-inline tex2jax_ignore">None</code> as its value and that is what will be printed in line 7.</div>
+<div class="para" id="p-1022">Much more usefully one would code a fruitful function that return a value and assigns that value to a variables for later processing or display.</div>
+<div class="para" id="p-1023">Next, a return statement, once executed, immediately terminates execution of a function, even if it is not the last statement in the function. In the following code, when line 3 executes, the value 5 is returned and assigned to the variable x, then printed. <em class="alert">Lines 4 and 5 never execute.</em> Run the following code and try making some modifications of it to make sure you understand why “there” and 10 never print out.</div>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_5_2"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_5_2_editor" data-question_label="" data-codelens="true">def weird() -&gt; int:
+    print("here")
+    return 5
+    print("there")
+    return 10
+
+x = weird()
+print(x)
+</textarea></div></div></div>
+<div class="para" id="p-1024">The fact that a return statement immediately ends execution of the code block inside a function is important to understand for writing complex programs. The following example algorithm uses a programming structure, <dfn class="terminology">conditionals</dfn>, that we will cover later, but for now we will use the idea here to hint at what is possible.</div>
+<div class="para" id="p-1025">Consider a circumstance where a student’s grade has to be greater than or equal to 60% to use it as a prerequisite. A function to check this could be written as follows:</div>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def prerequisite_checker( grade: float ) -&gt; bool:
+    """Checks if student meets prerequisite grade requirements"""
+    if grade &lt; 60:
+        return False
+    else:
+        return True
+</code></pre></div>
+<div class="para" id="p-1026">Do consider the challenges with using multiple return statements: the programmer (and thus the function’s code) has to repeat the return statement for every circumstance - and cannot overlook even one outcome. In fact, the <em class="emphasis">structured programming</em> tradition considers the use of multiple return statements to be bad practice. Instead, it suggests programmers get into the habit of always having a <em class="emphasis">single return statement as very last line of their function’s body</em>, to avoid ’forgetting’ to include all the returns. This practice, making the last line of every function a return statement, also makes tracing and debugging the complex function code easier.</div>
+<div class="para" id="p-1027">So far, we have just seen return values being assigned to variables. For example, we had the line <code class="code-inline tex2jax_ignore">square_result = square(the_integer)</code>. As with all assignment statements, the right-hand side of that instruction is executed first. It invokes the <code class="code-inline tex2jax_ignore">square</code> function, passing in a parameter value 10 (the current value of <code class="code-inline tex2jax_ignore">the_integer</code>). The function returns a value 100, which completes the evaluation of the right-hand side of the assignment. The value 100 is then assigned to the variable <code class="code-inline tex2jax_ignore">square_result</code>. In this case, the function invocation was the entire expression that was evaluated.</div>
+<div class="para" id="p-1028">Function invocations, however, can also be used as part of more complicated expressions. For example, <code class="code-inline tex2jax_ignore">square_result = 2 * square(the_integer + 1)</code>. In this case, the value 11 is evaluated, passed to the function, and is returned to the right-hand side of the instructions. Then, the returned value (121) is multiplied by 2 to produce the value 242.</div>
+<div class="para" id="p-1029">To reiterate, when executing the line of code <code class="code-inline tex2jax_ignore">square_result = 2 * square(the_integer + 1)</code>, the Python interpreter does these steps:</div>
+<div class="para logical" id="p-1030"><ol class="decimal">
+<li id="li-174"><div class="para" id="p-1031">It’s an assignment statement, so it evaluates the right-hand side expression <code class="code-inline tex2jax_ignore">2 * square(the_integer + 1)</code>.</div></li>
+<li id="li-175"><div class="para" id="p-1032">Looks up the values of the variables square and the_integer: square is a function object and the_integer is 10</div></li>
+<li id="li-176"><div class="para" id="p-1033">Evalutes the argument expression <code class="code-inline tex2jax_ignore">(the_integer + 1)</code> as 11</div></li>
+<li id="li-177"><div class="para" id="p-1034">Pasess 11 as a parameter value to the square function (where an_integer is assigned 11 as a value), get back the return value 121</div></li>
+<li id="li-178"><div class="para" id="p-1035">Substitutes 121 for square, so that the expression now reads <code class="code-inline tex2jax_ignore">2 * 121</code>
+</div></li>
+<li id="li-179"><div class="para" id="p-1036">Assigns 242 to variable <code class="code-inline tex2jax_ignore">square_result</code>
+</div></li>
+</ol></div>
+<div class="para" id="p-1037"><dfn class="terminology">Check your understanding</dfn></div>
+<article class="exercise exercise-like" id="question4_5_1"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.3</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_5_1" data-multipleanswers="false">
+<div class="para" id="p-1038">What is wrong with the following function definition:</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def add_em(x, y, z):
+    return x+y+z
+    print('the answer is', x+y+z)
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_5_1_opt_a"><div class="para" id="p-1039">You should never use a print statement in a function definition.</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_1_opt_a"><div class="para" id="p-1040">Although you should not mistake print for return, you may include print statements inside your functions.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_1_opt_b" data-correct=""><div class="para" id="p-1041">You should not have any statements in a function after the return statement. Once the function gets to the return statement it will immediately stop executing the function.</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_1_opt_b"><div class="para" id="p-1042">This is a very common mistake so be sure to watch out for it when you write your code!</div></li>
+<li data-component="answer" id="foppff_1_question4_5_1_opt_c"><div class="para" id="p-1043">You must calculate the value of x+y+z before you return it.</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_1_opt_c"><div class="para" id="p-1044">Python will automatically calculate the value x+y+z and then return it in the statement as it is written</div></li>
+<li data-component="answer" id="foppff_1_question4_5_1_opt_d"><div class="para" id="p-1045">A function cannot return a number.</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_1_opt_d"><div class="para" id="p-1046">Functions can return any legal data, including (but not limited to) numbers, strings, booleans, etc.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_1_opt_e"><div class="para" id="p-1047">There is no type hinting.</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_1_opt_e"><div class="para" id="p-1048">Although type hinting is standard in Python, functions don’t require it.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="question4_5_2"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.4</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_5_2" data-multipleanswers="false">
+<div class="para" id="p-1049">What will the following function return?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def add_em(x: int, y: int, z: int):
+    print(x+y+z)
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_5_2_opt_a" data-correct=""><div class="para" id="p-1050">The value None</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_2_opt_a"><div class="para" id="p-1051">We have accidentally used print where we mean return. Therefore, the function will return the value None by default. This is a VERY COMMON mistake so watch out! This mistake is also particularly difficult to find because when you run the function the output looks the same. It is not until you try to assign its value to a variable that you can notice a difference.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_2_opt_b"><div class="para" id="p-1052">The value of x+y+z</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_2_opt_b"><div class="para" id="p-1053">Careful! This is a very common mistake. Here we have printed the value x+y+z but we have not returned it. To return a value we MUST use the return keyword.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_2_opt_c"><div class="para" id="p-1054">The string ’x+y+z’</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_2_opt_c"><div class="para" id="p-1055">x+y+z calculates a number which represents the sum of the values x, y and z.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="question4_5_3"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.5</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_5_3" data-multipleanswers="false">
+<div class="para" id="p-1056">What will the following code output?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def square(x: int) -&gt; int:
+    y = x * x
+    return y
+
+print(square(5) + square(5))
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_5_3_opt_a"><div class="para" id="p-1057">25</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_3_opt_a"><div class="para" id="p-1058">It squares 5 twice, and adds them together.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_3_opt_b" data-correct=""><div class="para" id="p-1059">50</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_3_opt_b"><div class="para" id="p-1060">The two return values are added together.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_3_opt_c"><div class="para" id="p-1061">25 + 25</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_3_opt_c"><div class="para" id="p-1062">The two results are substituted into the expression and then it is evaluated. The returned values are integers in this case, not strings.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="question4_5_4"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.6</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_5_4" data-multipleanswers="false">
+<div class="para" id="p-1063">What will the following code output?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def square(x: int) -&gt; int:
+    y = x * x
+    return y
+
+print(square(square(2)))
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_5_4_opt_a"><div class="para" id="p-1064">8</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_4_opt_a"><div class="para" id="p-1065">It squares 2, yielding the value 4. But that doesn’t mean the next value multiplies 2 and 4.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_4_opt_b" data-correct=""><div class="para" id="p-1066">16</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_4_opt_b"><div class="para" id="p-1067">It squares 2, yielding the value 4. 4 is then passed as a value to square again, yeilding 16.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_4_opt_c"><div class="para" id="p-1068">Error: can’t put a function invocation inside parentheses</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_4_opt_c"><div class="para" id="p-1069">This is a more complicated expression, but still valid. The expression square(2) is evaluated, and the return value 4 substitutes for square(2) in the expression.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="question4_5_6"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.7</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question4_5_6" data-multipleanswers="false">
+<div class="para" id="p-1070">Which will print out first, square, g, or a number?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def square(x: int) -&gt; int:
+    print("square")
+    return x*x
+
+def g(y: int) -&gt; int:
+    print("g")
+    return y + 3
+
+print(square(g(2)))
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question4_5_6_opt_a"><div class="para" id="p-1071">square</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_6_opt_a"><div class="para" id="p-1072">Before executing square, it has to figure out what value to pass in, so g is executed first</div></li>
+<li data-component="answer" id="foppff_1_question4_5_6_opt_b" data-correct=""><div class="para" id="p-1073">g</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_6_opt_b"><div class="para" id="p-1074">g has to be executed and return a value in order to know what paramater value to provide to x.</div></li>
+<li data-component="answer" id="foppff_1_question4_5_6_opt_c"><div class="para" id="p-1075">a number</div></li>
+<li data-component="feedback" id="foppff_1_question4_5_6_opt_c"><div class="para" id="p-1076">square and g both have to execute before the number is printed.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="ac4_5_4"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.8</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_5_4">
+<div class="ac_question col-md-12" id="foppff_1_ac4_5_4_question"><div class="para" id="p-1077">
+<dfn class="terminology">8.</dfn> Write a function named <code class="code-inline tex2jax_ignore">same</code> that takes a string as input, and simply returns that string.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_5_4_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+    def testOne(self):
+        self.assertEqual(same('hello'), 'hello', "Testing the same function on input 'hello'.")
+
+myTests().main()
+</textarea>
+</div></div></div></article><article class="exercise exercise-like" id="ac4_5_5"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.9</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_5_5">
+<div class="ac_question col-md-12" id="foppff_1_ac4_5_5_question"><div class="para" id="p-1078">
+<dfn class="terminology">9.</dfn> Write a function called <code class="code-inline tex2jax_ignore">same_thing</code> that returns the parameter, unchanged.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_5_5_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+    def testOne(self):
+        self.assertEqual(same_thing(5), 5,"Testing the function same_thing with input 5")
+        self.assertEqual(same_thing("Welcome"), "Welcome", "Testing the function same_thing with input 'Welcome'")
+
+myTests().main()
+</textarea>
+</div></div></div></article><article class="exercise exercise-like" id="ac4_5_6"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.10</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_5_6">
+<div class="ac_question col-md-12" id="foppff_1_ac4_5_6_question"><div class="para" id="p-1079">
+<dfn class="terminology">10.</dfn> Write a function called <code class="code-inline tex2jax_ignore">subtract_three</code> that takes an integer or any number as input, and returns that number minus three.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_5_6_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+    def testOne(self):
+        self.assertEqual(subtract_three(9), 6, "Testing the subtract_three function on input 9.")
+        self.assertEqual(subtract_three(-5), -8, "Testing the subtract_three function on input -5.")
+
+myTests().main()
+</textarea>
+</div></div></div></article><article class="exercise exercise-like" id="ac4_5_7"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.11</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_5_7">
+<div class="ac_question col-md-12" id="foppff_1_ac4_5_7_question"><div class="para" id="p-1080">
+<dfn class="terminology">11.</dfn> Write a function called <code class="code-inline tex2jax_ignore">change</code> that takes one number as its input and returns that number, plus 7.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_5_7_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+    def testOne(self):
+        self.assertEqual(change(5), 12,"Testing the function change with input 5")
+        self.assertEqual(change(-10), -3, "Testing the function change with input -10")
+
+myTests().main()
+</textarea>
+</div></div></div></article><article class="exercise exercise-like" id="ac4_5_8"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.12</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_5_8">
+<div class="ac_question col-md-12" id="foppff_1_ac4_5_8_question"><div class="para" id="p-1081">
+<dfn class="terminology">12.</dfn> Write a function named <code class="code-inline tex2jax_ignore">intro</code> that takes a string as input. This string is intended to be a person’s name and the output is a standardized greeting. For example, given the string “Becky” as input, the function should return: “Hello, my name is Becky and I love COMP 1701.”</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_5_8_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+    def testOne(self):
+        self.assertEqual(intro("Mike"), "Hello, my name is Mike and I love COMP 1701.", "Testing the intro function on input 'Mike'.")
+
+myTests().main()
+</textarea>
+</div></div></div></article><article class="exercise exercise-like" id="ac4_5_9"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.13</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="foppff_1_ac4_5_9">
+<div class="ac_question col-md-12" id="foppff_1_ac4_5_9_question"><div class="para" id="p-1082">
+<dfn class="terminology">13.</dfn> Write a function called <code class="code-inline tex2jax_ignore">s_change</code> that takes one string as input and returns that string, concatenated with the string “for fun.”.</div></div>
+<textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="foppff_1_ac4_5_9_editor" data-question_label="" data-codelens="true">=====
+
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+    def testOne(self):
+        self.assertEqual(s_change("Coding"), "Coding for fun." ,"Testing the function s_change with input coding")
+        self.assertEqual(s_change("We go to the beach"), "We go to the beach for fun." , "Testing the function s_change with input We go to the beach")
+
+myTests().main()
+</textarea>
+</div></div></div></article><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
+</div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="functions_function-parameters.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="functions_decoding-a-function.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
+</html>

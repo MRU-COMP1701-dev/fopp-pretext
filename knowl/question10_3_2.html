@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.3.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="foppff_1_question10_3_2" data-multipleanswers="false">
+<div class="para" id="p-2501">Say we had a JSON string in the following format. How would you convert it so that it is a python list?</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">entertainment = """[{"Library Data": {"count": 3500, "rows": 10, "locations": 3}}, {"Movie Theater Data": {"count": 8, "rows": 25, "locations": 2}}]"""
+</code></pre></div>
+<li data-component="answer" id="foppff_1_question10_3_2_opt_a"><div class="para" id="p-2502">entertainment.json()</div></li>
+<li data-component="feedback" id="foppff_1_question10_3_2_opt_a"><div class="para" id="p-2503">The .json() method is not defined for strings.</div></li>
+<li data-component="answer" id="foppff_1_question10_3_2_opt_b"><div class="para" id="p-2504">json.dumps(entertainment)</div></li>
+<li data-component="feedback" id="foppff_1_question10_3_2_opt_b"><div class="para" id="p-2505">dumps (dump to string) turns a list or dictionary into a json-formatted string</div></li>
+<li data-component="answer" id="foppff_1_question10_3_2_opt_c" data-correct=""><div class="para" id="p-2506">json.loads(entertainment)</div></li>
+<li data-component="feedback" id="foppff_1_question10_3_2_opt_c"><div class="para" id="p-2507">loads (load from string) turns a json-formatted string into a list or dictionary</div></li>
+</ul></div></div></article><span class="incontext"><a href="nested-data_processing-json-results.html#question10_3_2" class="internal">in-context</a></span>
+</body>
+</html>
