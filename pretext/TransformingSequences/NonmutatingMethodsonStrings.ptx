@@ -334,7 +334,7 @@ print(setStr)</pre>
           <input>
             x = 2
             y = 6
-            print('sum of {x} and {y} is {x+y}; product: {x*y}.')
+            print(f'sum of {x} and {y} is {x+y}; product: {x*y}.')
           </input>
         </program>
       </statement>
@@ -379,7 +379,7 @@ print(setStr)</pre>
         <program language="python">
           <input>
             v = 2.34567
-            print('{v:.1f} {v:.2f} {v:.7f}')
+            print(f'{v:.1f} {v:.2f} {v:.7f}')
           </input>
         </program>
       </statement>
